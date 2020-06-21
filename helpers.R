@@ -6,6 +6,8 @@ group_by_days <- function(data) data %>% group_by(date)
 
 group_by_months <- function(data) data %>% mutate(month = format(as.Date(date), "%Y-%m")) %>% group_by(month)
 
+group_by_month_and_city <- function(data) data %>% mutate(month = format(as.Date(date), "%Y-%m")) %>% group_by(month, loc_city)
+
 group_by_years <- function(data) data %>% mutate(year = format(as.Date(date), "%Y")) %>% group_by(year)
 
 summarise_sales_data <- function(data) data %>% summarise(
