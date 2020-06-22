@@ -1,3 +1,5 @@
 library(shiny)
 
-shinyApp(ui = ui, server = server)
+addResourcePath("shinyjs", system.file("srcjs", package = "shinyjs"))
+
+runApp()

@@ -4,3 +4,5 @@
 .Ruserdata
 .ipynb_checkpoints
 data/*.csv
+www/*
+!www/.gitkeep

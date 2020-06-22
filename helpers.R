@@ -15,5 +15,7 @@ summarise_sales_data <- function(data) data %>% summarise(
                                                   total_profit = sum(profit),
                                                   max_profit = max(profit),
                                                   min_profit = min(profit),
-                                                  mean_profit = mean(profit)
-                                                )
+                                                  mean_profit = mean(profit),
+                                                  loc_lat = mean(loc_lat),
+                                                  loc_lng = mean(loc_lng),
+) %>% mutate(rank = percent_rank(total_profit))
