@@ -1,7 +1,6 @@
 import React from 'react'
 import { Map, Tooltip, TileLayer, CircleMarker } from 'react-leaflet'
 import 'leaflet/dist/leaflet.css';
-import './SalesMap.scss';
 
 export default class SalesMap extends React.Component {
   constructor(props) {
