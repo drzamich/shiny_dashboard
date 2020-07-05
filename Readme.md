@@ -20,5 +20,16 @@ npm run build
 ```
 Build artifacts will  be automatically copied to the `www` directory.
 
+### Generate sample data
+There is  a Python script that prepares sample CSV files with data used in the Shiny app. Firstly make sure you have the libraries needed:
+```
+pip install Faker pandas
+```
+
+Generate the data by running the script
+```
+python data/fake_data_generator.py
+```
+
 ## Usage
 Open the `app.R` file in RStudio and click on the **Run App**  button.
