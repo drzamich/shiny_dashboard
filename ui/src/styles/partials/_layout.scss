@@ -1,0 +1,50 @@
+html,
+body {
+  height: 100%;
+}
+
+#root {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  grid-template-rows: 10vh 15vh 15vh 30vh 25vh 50vh;
+  grid-template-areas:
+    "header header"
+    "cards cards"
+    "cards cards"
+    "bars bars"
+    "summary summary"
+    "map map";
+
+  @media (min-width: $bp-l) {
+    height: 100%;
+    grid-template-columns: repeat(4, 1fr);
+    grid-template-rows: 0.5fr repeat(4, 1fr) 0.5fr;
+    grid-template-areas:
+      "header header header header"
+      "cards  cards  cards  cards"
+      "bars bars  map map"
+      "bars bars map map"
+      "summary summary map map"
+      "summary summary map map";
+  }
+
+  .header {
+    grid-area: header;
+  }
+
+  .cards {
+    grid-area: cards;
+  }
+
+  .bars {
+    grid-area: bars;
+  }
+
+  .map {
+    grid-area: map;
+  }
+
+  .summary {
+    grid-area: summary;
+  }
+}
