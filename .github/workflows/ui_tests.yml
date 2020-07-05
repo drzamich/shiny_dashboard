@@ -1,0 +1,30 @@
+name: UI unit tests1122
+
+on:
+  push:
+    branches:
+      - master
+      - dev
+    paths:
+      - 'ui/**/*'
+  pull_request:
+    branches:
+      - master
+    paths:
+      - 'ui/**/*'
+
+jobs:
+  test_ui:
+    name: Run Jest unit tests
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - uses: actions/setup-node@v1
+        with:
+          node-version: '12'
+      - name: Run unit tests and build
+        working-directory: ./ui
+        run: |
+           npm ci
+           npm test
+           npm run build

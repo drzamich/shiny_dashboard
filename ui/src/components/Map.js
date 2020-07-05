@@ -1,5 +1,5 @@
 import React from 'react'
-import { Map, Tooltip, TileLayer, CircleMarker } from 'react-leaflet'
+// import { Map, Tooltip, TileLayer, CircleMarker } from 'react-leaflet'
 import 'leaflet/dist/leaflet.css';
 
 export default class SalesMap extends React.Component {
@@ -15,23 +15,23 @@ export default class SalesMap extends React.Component {
   }
 
   render() {
-    const { data } = this.state
-    let lats, lngs, mapCenter, mapBounds;
-    mapCenter = [0, 0];
+    // const { data } = this.state
+    // let lats, lngs, mapCenter, mapBounds;
+    // mapCenter = [0, 0];
 
-    if(data.length) {
-      lats = data.map(({ loc_lat }) => loc_lat);
-      lngs = data.map(({ loc_lng }) => loc_lng);
-      mapCenter = [
-        (Math.max(...lats) + Math.min(...lats)) / 2,
-        (Math.max(...lngs) + Math.min(...lngs)) / 2,
-      ];
+    // if(data.length) {
+    //   lats = data.map(({ loc_lat }) => loc_lat);
+    //   lngs = data.map(({ loc_lng }) => loc_lng);
+    //   mapCenter = [
+    //     (Math.max(...lats) + Math.min(...lats)) / 2,
+    //     (Math.max(...lngs) + Math.min(...lngs)) / 2,
+    //   ];
 
-      mapBounds = [
-        [Math.min(...lats), Math.min(...lngs)],
-        [Math.max(...lats), Math.max(...lngs)],
-      ];
-    }
+    //   mapBounds = [
+    //     [Math.min(...lats), Math.min(...lngs)],
+    //     [Math.max(...lats), Math.max(...lngs)],
+    //   ];
+    // }
 
     return (
         <section className="map">
