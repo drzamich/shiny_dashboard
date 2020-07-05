@@ -1,3 +1,37 @@
 .cards {
-  background: lightblue;
+  display: flex;
+  align-items: center;
+
+  .card {
+    background: white;
+    height: 100%;
+    box-shadow: 0px 0px 50px -5px rgba(0,0,0,0.73);
+
+    &__container {
+      width: 25%;
+      height: 100%;
+      padding: 10px;
+      box-sizing: border-box;
+    }
+
+    &__header {
+      height: 66%;
+    }
+
+    &__footer {
+      height: 34%;
+      background: lightgray;
+      @include valgin-middle;
+    }
+
+    &__header,
+    &__footer {
+      padding: 10px;
+    }
+
+    &__info-container {
+      display: flex;
+      justify-content: space-between;
+    }
+  }
 }

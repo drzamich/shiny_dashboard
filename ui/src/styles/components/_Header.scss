@@ -1,3 +1,10 @@
 .header {
-  background: lightgreen;
+  display: flex;
+  align-items: center;
+
+  &__page-title {
+    text-transform: none;
+    padding-left: 10px;
+    font-size: 2em;
+  }
 }
