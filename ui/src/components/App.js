@@ -7,13 +7,13 @@ import Summary from './Summary';
 
 function App() {
   return (
-    <>
+    <div className="app" data-testid="app">
       <Header />
       <Cards />
       <Bars />
       <Summary />
       <Map ref={(map) => { window.map = map }} />
-    </>
+    </div>
   );
 }
 

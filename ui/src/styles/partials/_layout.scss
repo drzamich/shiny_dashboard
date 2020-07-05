@@ -1,9 +1,10 @@
 html,
-body {
+body,
+#root {
   height: 100%;
 }
 
-#root {
+.app {
   display: grid;
   grid-template-columns: repeat(2, 1fr);
   grid-template-rows: 10vh 15vh 15vh 30vh 25vh 50vh;
