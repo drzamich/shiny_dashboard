@@ -1,4 +1,4 @@
-name: UI unit tests1122
+name: UI unit tests
 
 on:
   push:

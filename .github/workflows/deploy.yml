@@ -1,0 +1,45 @@
+name: Deploy to shinyapps.io
+
+on:
+  push:
+    branches:
+      - master
+      - dev
+
+jobs:
+  deploy:
+    name: Build artifacts and deploy to shinyapps.io
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+
+      - uses: actions/setup-python@v2
+        with:
+          python-version: '3.7.5'
+      - name: Generate fake data
+        run: |
+          pip install Faker pandas
+          python data/fake_data_generator.py
+
+      - uses: actions/setup-node@v1
+        with:
+          node-version: '12'
+      - name: Build UI
+        working-directory: ./ui
+        run: |
+           npm ci
+           npm run build
+
+      - name: Clean before deploy
+        run: rm -rf ui
+
+      - uses: r-lib/actions/setup-r@v1
+      - name: Install rsconnect
+        run: |
+          sudo apt-get install libcurl4-openssl-dev
+          R -e 'install.packages(pkgs = c("rsconnect", "shiny", "shinyjs", "dplyr", "jsonlite"))'
+      - name: Publish to shinyapps
+        run: |
+          ls
+          R -e 'rsconnect::setAccountInfo(name="drzamich", token="${{ secrets.SHINYAPPS_TOKEN }}", secret="${{ secrets.SHINYAPPS_SECRET }}")'
+          R -e 'rsconnect::deployApp(appName = "shiny_dashboard", appFileManifest = "Manifest")'
