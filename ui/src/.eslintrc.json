@@ -1,5 +1,7 @@
 {
   "rules": {
-    "semi": "error"
+    "semi": "error",
+    "object-curly-spacing": ["error", "always"],
+    "quotes": ["error", "single"]
   }
 }

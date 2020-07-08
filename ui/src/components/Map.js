@@ -1,42 +1,38 @@
-import React from 'react'
-// import { Map, Tooltip, TileLayer, CircleMarker } from 'react-leaflet'
+import React from 'react';
+import { Map, Tooltip, TileLayer, CircleMarker } from 'react-leaflet';
 import 'leaflet/dist/leaflet.css';
+import MonthSelect from './MonthSelect';
 
-export default class SalesMap extends React.Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      data: [],
-    }
+export default function SalesMap() {
+  const [data, setData] = React.useState([]);
+  window.SD_updateMapData = (newData) => { setData(newData); };
+
+  let lats, lngs, mapCenter, mapBounds;
+  mapCenter = [0, 0];
+
+  if(data.length) {
+    lats = data.map(({ loc_lat }) => loc_lat);
+    lngs = data.map(({ loc_lng }) => loc_lng);
+    mapCenter = [
+      (Math.max(...lats) + Math.min(...lats)) / 2,
+      (Math.max(...lngs) + Math.min(...lngs)) / 2,
+    ];
+
+    mapBounds = [
+      [Math.min(...lats), Math.min(...lngs)],
+      [Math.max(...lats), Math.max(...lngs)],
+    ];
   }
 
-  updateData = (data) => {
-    this.setState({ data })
-  }
+  const onMonthChange = (newMonth) => {
+    console.log(newMonth);
+  };
 
-  render() {
-    // const { data } = this.state
-    // let lats, lngs, mapCenter, mapBounds;
-    // mapCenter = [0, 0];
-
-    // if(data.length) {
-    //   lats = data.map(({ loc_lat }) => loc_lat);
-    //   lngs = data.map(({ loc_lng }) => loc_lng);
-    //   mapCenter = [
-    //     (Math.max(...lats) + Math.min(...lats)) / 2,
-    //     (Math.max(...lngs) + Math.min(...lngs)) / 2,
-    //   ];
-
-    //   mapBounds = [
-    //     [Math.min(...lats), Math.min(...lngs)],
-    //     [Math.max(...lats), Math.max(...lngs)],
-    //   ];
-    // }
-
-    return (
-        <section className="map">
-          Map
-          {/* <Map center={mapCenter} bounds={mapBounds} zoom={1}>
+  return (
+      <section className="map">
+        Map
+        <div className="map__container">
+          <Map center={mapCenter} bounds={mapBounds} zoom={1}>
             <TileLayer
               attribution='&amp;copy <a href="http://osm.org/copyright">OpenStreetMap</a> contributors'
               url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
@@ -51,8 +47,11 @@ export default class SalesMap extends React.Component {
                 </CircleMarker>
               ))
             }
-          </Map> */}
-        </section>
-      )
-  }
+          </Map>
+        </div>
+        <div className="map__controls">
+            <MonthSelect onChange={onMonthChange} />
+        </div>
+      </section>
+    );
 }

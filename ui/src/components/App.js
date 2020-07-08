@@ -6,19 +6,26 @@ import Bars from './Bars';
 import Summary from './Summary';
 import Loading from './Loading';
 
+export const MonthContext = React.createContext([]);
+
 function App() {
-  const [loading, setLoading] = React.useState(true);
-  window.setLoading = (isLoading) => { setLoading(isLoading); };
+  const [loading, setLoading] = React.useState(false);
+  const [monthCodes, setMonthCodes] = React.useState([]);
+
+  window.SD_setMonthCodes = (newMonthCodes) => { setMonthCodes(newMonthCodes); };
+  window.SD_setLoading = (isLoading) => { setLoading(isLoading); };
 
   if (loading) return <Loading />;
 
   return (
     <div className="app" data-testid="app">
-      <Header />
-      <Cards ref={(cards) => { window.cards = cards; }} />
-      <Bars />
-      <Summary />
-      <Map ref={(map) => { window.map = map; }} />
+      <MonthContext.Provider value={monthCodes}>
+        <Header />
+        <Cards />
+        <Bars />
+        <Summary />
+        <Map />
+      </MonthContext.Provider>
     </div>
   );
 }

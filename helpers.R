@@ -65,3 +65,8 @@ calculate_metrics <- function(sales, production) {
 
   metrics
 }
+
+extract_months <- function(data) {
+  months_df <- data %>% group_data('month') %>% summarise
+  return(as.vector(months_df[['month']]))
+}

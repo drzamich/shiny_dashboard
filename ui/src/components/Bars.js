@@ -1,7 +1,13 @@
-import React, { Component } from "react";
+import React from 'react';
+import MonthSelect from './MonthSelect';
 
-export default class Bars extends Component {
-  render() {
-    return <section className="bars">Bars</section>;
-  }
+export default function Bars() {
+  const onMonthChange = (newMonth) => {};
+
+  return (
+    <section className="bars">
+      Bars
+      <MonthSelect onChange={onMonthChange} />
+    </section>
+  );
 }
