@@ -16,6 +16,7 @@
   },
   "scripts": {
     "start": "react-scripts start",
+    "prebuild": "rm -r ../www/*",
     "build": "react-scripts build",
     "postbuild": "cp -a build/* ../www",
     "test": "react-scripts test",

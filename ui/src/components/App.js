@@ -9,7 +9,7 @@ function App() {
   return (
     <div className="app" data-testid="app">
       <Header />
-      <Cards />
+      <Cards ref={(cards) => { window.cards = cards }} />
       <Bars />
       <Summary />
       <Map ref={(map) => { window.map = map }} />
