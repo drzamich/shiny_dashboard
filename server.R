@@ -16,6 +16,7 @@ sales_json = toJSON(sales_by_city);
 
 server <- function(input, output) {
   useShinyjs(html = TRUE)
+  runjs('setLoading(false)')
   runjs(paste0('map.updateData(', sales_json,')'))
   runjs(paste0('cards.updateData(', metrics_JSON,')'))
 }
