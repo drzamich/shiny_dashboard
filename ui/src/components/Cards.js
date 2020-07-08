@@ -1,5 +1,6 @@
 import React from 'react';
 import { numberWithSpaces } from '../utilities/helpers';
+import defaultData from '../mocks/metrics.json'
 
 const CARD_TYPES = {
   total_profit: {
@@ -21,13 +22,6 @@ const CARD_TYPES = {
 const TIMESPANS = ['day', 'month', 'year'];
 const DEFAULT_TIMESPAN = TIMESPANS[1];
 
-const defaultData = {};
-TIMESPANS.forEach(timespan => {
-  defaultData[timespan] = {};
-  for (const type in CARD_TYPES) {
-    defaultData[timespan][type] = { value: 0, change: 0 };
-  }
-});
 
 const defaultTimespans = {};
 Object.keys(CARD_TYPES).forEach((type) => {

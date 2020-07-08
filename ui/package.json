@@ -12,16 +12,15 @@
     "node-sass": "^4.14.1",
     "react": "^16.13.1",
     "react-dom": "^16.13.1",
+    "react-frappe-charts": "^2.1.0",
     "react-leaflet": "^2.7.0",
     "react-scripts": "3.4.1"
   },
   "scripts": {
     "start": "react-scripts start",
-    "prebuild": "rm -r ../www/*",
+    "prebuild": "find ../www -path '../www/[!.]*' -prune -exec rm -r {} +",
     "build": "react-scripts build",
     "postbuild": "cp -a build/* ../www",
-    "build:ci": "react-scripts build",
-    "postbuild:ci": "cp -a build/* ../www",
     "test": "react-scripts test",
     "eject": "react-scripts eject"
   },

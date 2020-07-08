@@ -70,3 +70,12 @@ extract_months <- function(data) {
   months_df <- data %>% group_data('month') %>% summarise
   return(as.vector(months_df[['month']]))
 }
+
+get_production_for_month <- function(production, month_code) {
+  production_with_months <- production %>% mutate(month = format(as.Date(date), "%Y-%m"))
+  production_filtered <- production_with_months[production_with_months$month == month_code,]
+  result <- list(
+    dates = as.vector(production_filtered[['date']]),
+    values = as.vector(production_filtered[['units']])
+  )
+}

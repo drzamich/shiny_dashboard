@@ -5,12 +5,13 @@ import Cards from './Cards';
 import Bars from './Bars';
 import Summary from './Summary';
 import Loading from './Loading';
+import mockedMonths from '../mocks/months.json'
 
 export const MonthContext = React.createContext([]);
 
 function App() {
   const [loading, setLoading] = React.useState(false);
-  const [monthCodes, setMonthCodes] = React.useState([]);
+  const [monthCodes, setMonthCodes] = React.useState(mockedMonths);
 
   window.SD_setMonthCodes = (newMonthCodes) => { setMonthCodes(newMonthCodes); };
   window.SD_setLoading = (isLoading) => { setLoading(isLoading); };

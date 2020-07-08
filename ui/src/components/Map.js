@@ -2,9 +2,10 @@ import React from 'react';
 import { Map, Tooltip, TileLayer, CircleMarker } from 'react-leaflet';
 import 'leaflet/dist/leaflet.css';
 import MonthSelect from './MonthSelect';
+import mockedData from '../mocks/sales.json'
 
 export default function SalesMap() {
-  const [data, setData] = React.useState([]);
+  const [data, setData] = React.useState(mockedData);
   window.SD_updateMapData = (newData) => { setData(newData); };
 
   let lats, lngs, mapCenter, mapBounds;
