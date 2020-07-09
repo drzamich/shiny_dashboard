@@ -1,5 +1,5 @@
 import React from 'react';
-import MonthSelect from './MonthSelect';
+import MonthSelect from './controls/MonthSelect';
 import mockedDates from '../mocks/production_dates.json';
 import mockedValues from '../mocks/production_values.json';
 import Chart from 'react-apexcharts';

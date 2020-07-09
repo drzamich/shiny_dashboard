@@ -1,7 +1,7 @@
 import React from 'react';
 import { numberWithSpaces } from '../utilities/helpers';
 import defaultData from '../mocks/metrics.json';
-import RangeSelect, { METRICS_TYPES } from './RangeSelect';
+import RangeSelect, { METRICS_TYPES } from './controls/RangeSelect';
 
 const defaultTimespans = {};
 Object.keys(METRICS_TYPES).forEach((type) => {
@@ -14,9 +14,8 @@ export default function Cards() {
 
   window.SD_updateCardsData = (newData) => { setData(newData); };
 
-  const onTimespanChange = (event, type) => {
-    const { value } = event.target;
-    setTimespans(timespans => ({ ...timespans, [type]: value }));
+  const onTimespanChange = (timespan, type) => {
+    setTimespans(timespans => ({ ...timespans, [type]: timespan }));
   };
 
   const cards = Object.keys(METRICS_TYPES).map((type) => {
@@ -32,21 +31,22 @@ export default function Cards() {
 function Card({ type, value, change, onTimespanChange }) {
   const { name, valPrefix } = METRICS_TYPES[type];
   const changeType = change < 0 ? 'negative' : 'positive';
+  const changePercent = `${(change * 100).toFixed(2)} %`;
+
+  const displayValue = numberWithSpaces(value.toFixed(0));
 
   return (
     <div className="card__container">
       <div className={`card card-${type}`}>
         <div className="card__header">
-          <div className="card__value-container">
-            <h3 className="card__value">{`${valPrefix || ''} ${numberWithSpaces(value)}`}</h3>
-          </div>
+          <h3 className="card__value">{`${valPrefix || ''} ${displayValue}`}</h3>
           <div className="card__info-container">
             <h4 className="card__title">{name}</h4>
-            <h4 className={`card__change--${changeType}`}>{change}%</h4>
+            <h4 className={`card__change card__change--${changeType}`}>{changePercent}</h4>
           </div>
         </div>
         <div className="card__footer">
-          <RangeSelect onChange={(event) =>  onTimespanChange(event, type)} />
+          <RangeSelect onChange={(timespan) => onTimespanChange(timespan, type)} />
         </div>
       </div>
     </div>

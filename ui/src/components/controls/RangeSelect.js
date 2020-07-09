@@ -1,6 +1,12 @@
 import React from 'react';
+import Dropdown from './Dropdown';
 
-export const TIMESPANS = ['day', 'month', 'year'];
+export const TIMESPANS = {
+  day: 'daily stats',
+  month: 'monthly stats',
+  year: 'yearly stats',
+};
+
 export const DEFAULT_TIMESPAN = TIMESPANS[1];
 
 export const METRICS_TYPES = {
@@ -21,11 +27,16 @@ export const METRICS_TYPES = {
 };
 
 export default function RangeSelect({ onChange }) {
+  const [timespan, setTimespan] = React.useState('month');
+
+  const onItemClick = (timespan) => {
+    setTimespan(timespan);
+    onChange(timespan);
+  };
+
   return (
     <div class="range-select__comtainer">
-        <select name="scope" id="scope-select" onChange={onChange} defaultValue={DEFAULT_TIMESPAN}>
-            {TIMESPANS.map(timespan => <option value={timespan} key={timespan}>{`${timespan} stats`}</option>)}
-        </select>
+      <Dropdown keyValues={TIMESPANS} currentKey={timespan} onChange={onItemClick} />
     </div>
   );
 }

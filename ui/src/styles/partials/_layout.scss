@@ -2,29 +2,21 @@ html,
 body,
 #root {
   height: 100%;
-  font-family: Arial, Helvetica, sans-serif;
-  background: lightgoldenrodyellow;
+  font-family: $roboto;
+  background: $pampas;
+  color: $abbey;
 }
 
 .app {
-  display: grid;
-  grid-template-columns: repeat(2, 1fr);
-  grid-template-rows: 10vh 15vh 15vh 30vh 25vh 50vh;
-  grid-template-areas:
-    "header header"
-    "cards cards"
-    "cards cards"
-    "bars bars"
-    "summary summary"
-    "map map";
+  display: block;
   padding: 10px;
-  gap: 10px;
   box-sizing: border-box;
 
-  @media (min-width: $bp-l) {
+  @media (min-width: $bp-s) {
+    display: grid;
     height: 100%;
     grid-template-columns: repeat(4, 1fr);
-    grid-template-rows: 0.3fr repeat(4, 1fr) 0.5fr;
+    grid-template-rows: 70px 150px repeat(3, 1fr) 0.5fr;
     grid-template-areas:
       "header header header header"
       "cards  cards  cards  cards"
@@ -32,25 +24,26 @@ body,
       "bars bars map map"
       "summary summary map map"
       "summary summary map map";
-  }
+    gap: 10px;
 
-  .header {
-    grid-area: header;
-  }
+    .header {
+      grid-area: header;
+    }
 
-  .cards {
-    grid-area: cards;
-  }
+    .cards {
+      grid-area: cards;
+    }
 
-  .bars {
-    grid-area: bars;
-  }
+    .bars {
+      grid-area: bars;
+    }
 
-  .map {
-    grid-area: map;
-  }
+    .map {
+      grid-area: map;
+    }
 
-  .summary {
-    grid-area: summary;
+    .summary {
+      grid-area: summary;
+    }
   }
 }

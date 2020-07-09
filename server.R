@@ -26,6 +26,4 @@ server <- function(input, output) {
   shiny::observeEvent(input$topSalesMonth, {
     sales %>% update_top_sales(input$topSalesMonth, top_sales)
   });
-
-  genetate_mocks(metrics, months, sales, production, last_month);
 }

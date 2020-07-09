@@ -1,26 +1,36 @@
 .cards {
-  display: flex;
-  align-items: center;
+  display: grid;
+  grid-template: 1fr 1fr / 1fr 1fr;
+
+  @media(min-width: $bp-s) {
+    grid-template: 1fr / 1fr 1fr 1fr 1fr;
+  }
 
   .card {
     background: white;
-    height: 100%;
     box-shadow: 0px 0px 50px -5px rgba(0,0,0,0.73);
+    min-height: 130px;
+    height: 100%;
+    color: $abbey;
 
     &__container {
-      width: 25%;
       height: 100%;
       padding: 10px;
       box-sizing: border-box;
     }
 
     &__header {
-      height: 66%;
+      height: calc(100% - 50px);
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
     }
 
     &__footer {
-      height: 34%;
-      background: lightgray;
+      height: 50px;
+      background: $abbey;
+      color: white;
+      font-weight: 300;
       @include valgin-middle;
     }
 
@@ -29,9 +39,25 @@
       padding: 10px;
     }
 
+    &__value {
+      font-size: 30px;
+    }
+
     &__info-container {
       display: flex;
       justify-content: space-between;
+      align-items: flex-end;
+    }
+
+    &__change {
+      flex-shrink: 0;
+      &--positive {
+        color: $fernGreen;
+      }
+
+      &--negative {
+        color: $brightRed;
+      }
     }
   }
 }

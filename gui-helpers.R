@@ -20,7 +20,7 @@ update_top_sales <- function(sales, month, no_rows)  {
 genetate_mocks <- function(metrics, months, sales, production, last_month) {
     # For development purposes
   if(!is.null(.GlobalEnv$generate_mocks)) {
-    write_json(metrics, 'ui/src/mocks/metrics.json')
+    write_json(metrics, 'ui/src/mocks/metrics.json', auto_unbox = TRUE)
     write_json(months, 'ui/src/mocks/months.json')
     write_json(update_sales_data(sales, last_month), 'ui/src/mocks/sales.json')
     write_json(update_top_sales(sales, last_month, 3), 'ui/src/mocks/top_sales.json')
@@ -43,4 +43,6 @@ initialize_gui_data <- function(sales, production) {
   runjs('SD_setLoading(false)')
   runjs(paste0('SD_setMonthCodes(', toJSON(months) ,')'))
   runjs(paste0('SD_updateCardsData(', toJSON(metrics, auto_unbox = TRUE),')'))
+
+  genetate_mocks(metrics, months, sales, production, last_month);
 }

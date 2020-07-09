@@ -1,7 +1,7 @@
 import React from 'react';
 import { Map, Tooltip, TileLayer, CircleMarker } from 'react-leaflet';
 import 'leaflet/dist/leaflet.css';
-import MonthSelect from './MonthSelect';
+import MonthSelect from './controls/MonthSelect';
 import mockedData from '../mocks/sales.json';
 
 export default function SalesMap() {

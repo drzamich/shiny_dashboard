@@ -1,7 +1,7 @@
 import React from 'react';
 import Chart from 'react-apexcharts';
 
-import MonthSelect from '../components/MonthSelect';
+import MonthSelect from './controls/MonthSelect';
 import mockedData from '../mocks/top_sales.json';
 
 export default function Summary() {
