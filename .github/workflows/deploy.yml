@@ -27,16 +27,13 @@ jobs:
         working-directory: ./ui
         run: |
            npm ci
-           npm run build:ci
-
-      - name: Clean before deploy
-        run: rm -rf ui
+           npm run build
 
       - uses: r-lib/actions/setup-r@v1
       - name: Install rsconnect
         run: |
           sudo apt-get install libcurl4-openssl-dev
-          R -e 'install.packages(pkgs = c("rsconnect", "shiny", "shinyjs", "dplyr", "jsonlite"))'
+          R -e 'install.packages(pkgs = c("rsconnect", "shiny", "shinyjs", "dplyr", "jsonlite", "purrr", "data.table"))'
       - name: Publish to shinyapps
         run: |
           ls
