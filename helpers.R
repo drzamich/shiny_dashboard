@@ -2,6 +2,8 @@ library(dplyr)
 library(purrr)
 library(data.table)
 
+options(dplyr.summarise.inform=F)
+
 group_data <- function(data, grouping_type) {
   if (grouping_type == 'day') {
     return(data %>% group_by(date))
@@ -35,7 +37,7 @@ summarise_production_data <- function(data) data %>% summarise(
 )
 
 calculate_change <- function(df, col_name) {
-  last_tuple <- last(data.frame(df[[col_name]]), 2);
+  last_tuple <- data.table::last(data.frame(df[[col_name]]), 2);
   change <- (last_tuple[2,1] - last_tuple[1,1]) / last_tuple[1,1]
   change
 }
@@ -71,11 +73,20 @@ extract_months <- function(data) {
   return(as.vector(months_df[['month']]))
 }
 
+filter_by_month <- function(data, month_code) {
+  data_with_months <- data %>% mutate(month = format(as.Date(date), "%Y-%m"))
+  data_with_months[data_with_months$month == month_code,]
+}
+
 get_production_for_month <- function(production, month_code) {
-  production_with_months <- production %>% mutate(month = format(as.Date(date), "%Y-%m"))
-  production_filtered <- production_with_months[production_with_months$month == month_code,]
+  production_for_month <- production %>% filter_by_month(month_code)
   result <- list(
-    dates = as.vector(production_filtered[['date']]),
-    values = as.vector(production_filtered[['units']])
+    dates = as.vector(production_for_month[['date']]),
+    values = as.vector(production_for_month[['units']])
   )
+}
+
+get_sales_for_month <- function(sales, month_code) {
+  sales_for_months <- sales %>% filter_by_month(month_code)
+  sales_for_months %>% group_data('city') %>% summarise_sales_data
 }

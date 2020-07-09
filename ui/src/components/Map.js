@@ -2,11 +2,11 @@ import React from 'react';
 import { Map, Tooltip, TileLayer, CircleMarker } from 'react-leaflet';
 import 'leaflet/dist/leaflet.css';
 import MonthSelect from './MonthSelect';
-import mockedData from '../mocks/sales.json'
+import mockedData from '../mocks/sales.json';
 
 export default function SalesMap() {
   const [data, setData] = React.useState(mockedData);
-  window.SD_updateMapData = (newData) => { setData(newData); };
+  window.SD_updateMapData = (newData) => { console.log(newData); setData(newData); };
 
   let lats, lngs, mapCenter, mapBounds;
   mapCenter = [0, 0];
@@ -26,7 +26,9 @@ export default function SalesMap() {
   }
 
   const onMonthChange = (newMonth) => {
-    console.log(newMonth);
+    if(window.Shiny) {
+      window.Shiny.setInputValue('salesMonth', newMonth);
+    }
   };
 
   return (

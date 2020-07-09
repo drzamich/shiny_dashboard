@@ -14,7 +14,11 @@ export default function Bars() {
     setValues(newValues);
   };
 
-  const onMonthChange = (newMonth) => {};
+  const onMonthChange = (newMonth) => {
+    if(window.Shiny) {
+      window.Shiny.setInputValue('productionMonth', newMonth);
+    }
+  };
 
   const options = {
     chart: {
