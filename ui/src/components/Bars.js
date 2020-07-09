@@ -31,7 +31,7 @@ export default function Bars() {
 
   const series = [
     {
-      name: 'series-1',
+      name: 'Units produced',
       data: values,
     },
   ];

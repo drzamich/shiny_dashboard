@@ -90,3 +90,8 @@ get_sales_for_month <- function(sales, month_code) {
   sales_for_months <- sales %>% filter_by_month(month_code)
   sales_for_months %>% group_data('city') %>% summarise_sales_data
 }
+
+get_top_rows <- function(data, col_name, no_rows) {
+  ordered <- data[order(data[[col_name]], decreasing = TRUE),]
+  top <- ordered[1:no_rows,]
+}

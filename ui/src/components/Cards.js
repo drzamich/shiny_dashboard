@@ -1,30 +1,10 @@
 import React from 'react';
 import { numberWithSpaces } from '../utilities/helpers';
-import defaultData from '../mocks/metrics.json'
-
-const CARD_TYPES = {
-  total_profit: {
-    name: 'Total profit',
-    valPrefix: '$',
-  },
-  mean_profit: {
-    name: 'Average profit',
-    valPrefix: '$',
-  },
-  units_produced: {
-    name: 'Units produced',
-  },
-  units_sold: {
-    name: 'Units sold',
-  },
-};
-
-const TIMESPANS = ['day', 'month', 'year'];
-const DEFAULT_TIMESPAN = TIMESPANS[1];
-
+import defaultData from '../mocks/metrics.json';
+import RangeSelect, { METRICS_TYPES } from './RangeSelect';
 
 const defaultTimespans = {};
-Object.keys(CARD_TYPES).forEach((type) => {
+Object.keys(METRICS_TYPES).forEach((type) => {
   defaultTimespans[type] = 'month';
 });
 
@@ -39,7 +19,7 @@ export default function Cards() {
     setTimespans(timespans => ({ ...timespans, [type]: value }));
   };
 
-  const cards = Object.keys(CARD_TYPES).map((type) => {
+  const cards = Object.keys(METRICS_TYPES).map((type) => {
     const timespan = timespans[type];
     const { value, change } = data[timespan][type];
     const props = { type, value, change, onTimespanChange };
@@ -50,7 +30,7 @@ export default function Cards() {
 }
 
 function Card({ type, value, change, onTimespanChange }) {
-  const { name, valPrefix } = CARD_TYPES[type];
+  const { name, valPrefix } = METRICS_TYPES[type];
   const changeType = change < 0 ? 'negative' : 'positive';
 
   return (
@@ -66,9 +46,7 @@ function Card({ type, value, change, onTimespanChange }) {
           </div>
         </div>
         <div className="card__footer">
-          <select name="scope" id="scope-select" onChange={(event) => onTimespanChange(event, type)} defaultValue={DEFAULT_TIMESPAN}>
-            {TIMESPANS.map(timespan => <option value={timespan} key={timespan}>{`${timespan} stats`}</option>)}
-          </select>
+          <RangeSelect onChange={(event) =>  onTimespanChange(event, type)} />
         </div>
       </div>
     </div>

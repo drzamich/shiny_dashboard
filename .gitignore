@@ -6,3 +6,4 @@
 data/*.csv
 www/*
 !www/.gitkeep
+*.dcf
