@@ -5,7 +5,7 @@ import Cards from './Cards';
 import Bars from './Bars';
 import Summary from './Summary';
 import Loading from './Loading';
-import mockedMonths from '../mocks/months.json'
+import mockedMonths from '../mocks/months.json';
 
 export const MonthContext = React.createContext([]);
 
