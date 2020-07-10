@@ -1,42 +1,32 @@
 .cards {
   display: grid;
   grid-template: 1fr 1fr / 1fr 1fr;
+  gap: 15px;
 
   @media(min-width: $bp-s) {
     grid-template: 1fr / 1fr 1fr 1fr 1fr;
   }
 
   .card {
-    background: white;
+    background: $polar;
     box-shadow: 0px 0px 50px -5px rgba(0,0,0,0.73);
-    min-height: 130px;
+    min-height: 120px;
     height: 100%;
     color: $abbey;
+    border-radius: 0;
+    border: 0;
 
     &__container {
       height: 100%;
-      padding: 10px;
       box-sizing: border-box;
     }
 
     &__header {
+      padding: 10px;
       height: calc(100% - 50px);
       display: flex;
       flex-direction: column;
       justify-content: space-between;
-    }
-
-    &__footer {
-      height: 50px;
-      background: $abbey;
-      color: white;
-      font-weight: 300;
-      @include valgin-middle;
-    }
-
-    &__header,
-    &__footer {
-      padding: 10px;
     }
 
     &__value {
@@ -57,6 +47,39 @@
 
       &--negative {
         color: $brightRed;
+      }
+    }
+
+    &__footer {
+      height: 50px;
+      background: $seashell;
+      color: white;
+      font-weight: 300;
+      @include valgin-middle;
+      justify-content: space-between;
+      padding-left: 10px;
+    }
+
+    &__icon {
+      width: 50px;
+      height: 100%;
+      @include valgin-middle;
+      justify-content: center;
+
+      &--total_profit {
+        background: $scooter;
+      }
+
+      &--mean_profit {
+        background: $conifer;
+      }
+
+      &--units_produced {
+        background: $neonCarrot;
+      }
+
+      &--units_sold {
+        background: $carnation;
       }
     }
   }

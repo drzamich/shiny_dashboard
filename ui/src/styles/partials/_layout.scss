@@ -3,20 +3,31 @@ body,
 #root {
   height: 100%;
   font-family: $roboto;
-  background: $pampas;
+  background: $alabaster;
   color: $abbey;
+  font-size: 16px;
 }
 
 .app {
   display: block;
-  padding: 10px;
   box-sizing: border-box;
 
+  @media (max-width: $bp-s) {
+    .header,
+    .cards,
+    .bars,
+    .map,
+    .summary {
+      margin: 10px;
+    }
+  }
+
   @media (min-width: $bp-s) {
+    padding: 10px;
     display: grid;
     height: 100%;
     grid-template-columns: repeat(4, 1fr);
-    grid-template-rows: 70px 150px repeat(3, 1fr) 0.5fr;
+    grid-template-rows: 70px 130px repeat(3, 1fr) 0.5fr;
     grid-template-areas:
       "header header header header"
       "cards  cards  cards  cards"
@@ -24,7 +35,7 @@ body,
       "bars bars map map"
       "summary summary map map"
       "summary summary map map";
-    gap: 10px;
+    gap: 15px;
 
     .header {
       grid-area: header;

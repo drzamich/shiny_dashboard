@@ -1,0 +1,41 @@
+.dropdown {
+
+  &-toggle {
+    box-shadow: 9px 14px 33px -15px rgba(0,0,0,0.75);
+    background: $polar;
+    color: $abbey;
+    border-radius: 0;
+    font-size: 0.75rem;
+    text-transform: uppercase;
+    border: none;
+
+    &.transparent {
+      background: none;
+    }
+
+    &::after {
+      margin-left: 1.5rem;
+    }
+
+    &:focus,
+    &:hover,
+    &:active {
+      color: $abbey;
+      box-shadow: none;
+    }
+  }
+
+  &-menu {
+    border-radius: 0;
+    font-size: 0.9rem;
+  }
+
+  &-item {
+    padding: 0.25rem 0.5rem;
+
+    &:active {
+      background: $abbey;
+      color: white;
+    }
+  }
+}

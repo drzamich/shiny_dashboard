@@ -2,6 +2,7 @@ import React from 'react';
 import { numberWithSpaces } from '../utilities/helpers';
 import defaultData from '../mocks/metrics.json';
 import RangeSelect, { METRICS_TYPES } from './controls/RangeSelect';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 
 const defaultTimespans = {};
 Object.keys(METRICS_TYPES).forEach((type) => {
@@ -47,6 +48,9 @@ function Card({ type, value, change, onTimespanChange }) {
         </div>
         <div className="card__footer">
           <RangeSelect onChange={(timespan) => onTimespanChange(timespan, type)} />
+          <div className={`card__icon card__icon--${type}`}>
+            <FontAwesomeIcon icon={METRICS_TYPES[type].icon} />
+          </div>
         </div>
       </div>
     </div>

@@ -1,5 +1,6 @@
 import React from 'react';
 import Dropdown from './Dropdown';
+import { faArchive, faChartLine, faCartArrowDown, faMoneyBill  } from '@fortawesome/free-solid-svg-icons';
 
 export const TIMESPANS = {
   day: 'daily stats',
@@ -13,16 +14,20 @@ export const METRICS_TYPES = {
   total_profit: {
     name: 'Total profit',
     valPrefix: '$',
+    icon: faMoneyBill,
   },
   mean_profit: {
     name: 'Average profit',
     valPrefix: '$',
+    icon: faChartLine,
   },
   units_produced: {
     name: 'Units produced',
+    icon: faArchive,
   },
   units_sold: {
     name: 'Units sold',
+    icon: faCartArrowDown,
   },
 };
 
@@ -35,8 +40,8 @@ export default function RangeSelect({ onChange }) {
   };
 
   return (
-    <div class="range-select__comtainer">
-      <Dropdown keyValues={TIMESPANS} currentKey={timespan} onChange={onItemClick} />
+    <div class="range-select__container">
+      <Dropdown keyValues={TIMESPANS} currentKey={timespan} onChange={onItemClick} transparent />
     </div>
   );
 }
