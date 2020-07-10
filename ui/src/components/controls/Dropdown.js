@@ -5,9 +5,9 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 
 export default function CustomDropdown({ keyValues, currentKey, onChange }) {
   return (
-    <div class="range-select__comtainer">
+    <div className="range-select__comtainer">
       <Dropdown>
-        <Dropdown.Toggle variant="secondary" id="dropdown-basic" size="sm">
+        <Dropdown.Toggle variant="secondary" id="dropdown" size="sm">
           { keyValues[currentKey] }
         </Dropdown.Toggle>
 

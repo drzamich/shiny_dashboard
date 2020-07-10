@@ -5,7 +5,7 @@
   "homepage": "./",
   "dependencies": {
     "@testing-library/jest-dom": "^4.2.4",
-    "@testing-library/react": "^9.3.2",
+    "@testing-library/react": "^10.4.5",
     "@testing-library/user-event": "^7.1.2",
     "apexcharts": "^3.19.3",
     "bootstrap": "^4.5.0",
@@ -24,7 +24,7 @@
     "prebuild": "find ../www -path '../www/[!.]*' -prune -exec rm -r {} +",
     "build": "react-scripts build",
     "postbuild": "cp -a build/* ../www",
-    "test": "react-scripts test",
+    "test": "react-scripts test --env=jsdom-fourteen",
     "eject": "react-scripts eject"
   },
   "eslintConfig": {

@@ -21,8 +21,6 @@ export default function MonthSelect({ onChange }) {
     [monthCodes]
   );
 
-  console.log(keyValues);
-
   const onSelectChange = (month) => {
     setCurrentMonth(month);
     onChange(month);
