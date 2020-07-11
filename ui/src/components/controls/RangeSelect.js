@@ -40,7 +40,7 @@ export default function RangeSelect({ onChange }) {
   };
 
   return (
-    <div class="range-select__container">
+    <div className="range-select__container">
       <Dropdown keyValues={TIMESPANS} currentKey={timespan} onChange={onItemClick} transparent />
     </div>
   );

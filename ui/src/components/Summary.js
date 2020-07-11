@@ -29,7 +29,7 @@ export default function Summary() {
   const options = {
     chart: {
       type: 'bar',
-      height: 350,
+      height: '100px',
     },
     plotOptions: {
       bar: {
@@ -45,10 +45,14 @@ export default function Summary() {
   };
 
   return (
-    <section className="summary">
-      Top 3 cities by revenue
+    <section className="dashboard-box summary">
+      <div className="dashboard-box__header">
+        <h3>Top cities by revenue</h3>
+      </div>
+      <div className="dashboard-box__content">
       <Chart type="bar" options={options} series={series} />
       <MonthSelect onChange={onMonthChange} />
+      </div>
     </section>
   );
 }

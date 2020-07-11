@@ -1,20 +1,25 @@
 .cards {
   display: grid;
-  grid-template: 1fr 1fr / 1fr 1fr;
+  grid-template: repeat(4, 1fr) / 1fr;
   gap: 15px;
 
-  @media(min-width: $bp-s) {
+  @media(min-width: $bp-xs) {
+    grid-template: 1fr 1fr / 1fr 1fr;
+  }
+
+  @media(min-width: $bp-l) {
     grid-template: 1fr / 1fr 1fr 1fr 1fr;
   }
 
   .card {
     background: $polar;
-    box-shadow: 0px 0px 50px -5px rgba(0,0,0,0.73);
+    @include shadow;
     min-height: 120px;
     height: 100%;
     color: $abbey;
     border-radius: 0;
     border: 0;
+    position: initial;
 
     &__container {
       height: 100%;

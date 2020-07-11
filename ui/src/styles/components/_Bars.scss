@@ -1,3 +1,13 @@
 .bars {
- background: lightcoral;
+  .dashboard-box {
+    &__content {
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-end;
+
+      .bar {
+        height: 100%;
+      }
+    }
+  }
 }

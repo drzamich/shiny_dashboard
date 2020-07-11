@@ -32,9 +32,11 @@ export default function SalesMap() {
   };
 
   return (
-      <section className="map">
-        Map
-        <div className="map__container">
+      <section className="dashboard-box map">
+      <div className="dashboard-box__header">
+        <h3>Sales map</h3>
+      </div>
+        <div className="dashboard-box__content">
           <Map center={mapCenter} bounds={mapBounds} zoom={1}>
             <TileLayer
               attribution='&amp;copy <a href="http://osm.org/copyright">OpenStreetMap</a> contributors'
@@ -51,9 +53,9 @@ export default function SalesMap() {
               ))
             }
           </Map>
-        </div>
-        <div className="map__controls">
+                  <div className="map__controls">
             <MonthSelect onChange={onMonthChange} />
+        </div>
         </div>
       </section>
     );
