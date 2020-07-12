@@ -3,6 +3,7 @@ import { Map, Tooltip, TileLayer, CircleMarker } from 'react-leaflet';
 import 'leaflet/dist/leaflet.css';
 import mockedData from '../mocks/sales.json';
 import DashboardBox from './DashboardBox';
+import { numberWithSpaces } from '../utilities/helpers';
 
 export default function SalesMap() {
   const [data, setData] = React.useState(mockedData);
@@ -43,16 +44,18 @@ export default function SalesMap() {
         {data.map(({ loc_city, loc_lat, loc_lng, rank, total_profit }) => (
           <CircleMarker
             center={[loc_lat, loc_lng]}
-            fillOpacity={0.5}
+            fillOpacity={0.7}
             stroke={false}
             radius={rank * 25 + 10}
             key={loc_city}
           >
             <Tooltip>
-              <h3>{loc_city}</h3>
-              <p>
-                <b>Total profit:</b> {total_profit}
-              </p>
+              <div className="map__tooltip">
+                <h3 className="map__tooltip-title">{loc_city}</h3>
+                <p className="map__tooltip-text">
+                  <b>Total profit:</b> {`$${numberWithSpaces(total_profit.toFixed(0))}`}
+                </p>
+              </div>
             </Tooltip>
           </CircleMarker>
         ))}

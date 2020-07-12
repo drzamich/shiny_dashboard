@@ -23,6 +23,7 @@ server <- function(input, output) {
     sales %>% update_sales_data(input$salesMonth)
   });
 
+  top_sales <- 3
   shiny::observeEvent(input$topSalesMonth, {
     sales %>% update_top_sales(input$topSalesMonth, top_sales)
   });

@@ -32,7 +32,7 @@ export default function Production() {
         formatter: (value, ts, index) => {
           const [, month, day] = value.split('-');
           if (DAYS_TO_DISPLAY.includes(day) || dates.length - 1 === index) {
-            return `${month}-${day}`;
+            return `${day}/${month}`;
           }
           return '';
         },

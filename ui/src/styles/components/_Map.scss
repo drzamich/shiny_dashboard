@@ -1,5 +1,29 @@
 .map {
-  .leaflet-container {
-    height: 60vh;
+  .dashboard-box {
+    &__content {
+      .leaflet-container {
+        height: 100%;
+        min-height: 60vw;
+        width: 100%;
+        z-index: 50;
+
+        path {
+          fill: $scooter;
+        }
+      }
+    }
+  }
+
+  &__tooltip {
+    font-family: $maven;
+
+    &-title {
+      font-size: 1rem;
+      font-weight: 900;
+    }
+
+    &-text {
+      font-size: 0.8rem;
+    }
   }
 }
