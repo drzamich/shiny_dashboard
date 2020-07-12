@@ -20,6 +20,12 @@
     border: 0;
     background: transparent;
 
+    &:focus,
+    &:active {
+      border: 0;
+      outline: none;
+    }
+
     svg {
       opacity: 0.7;
     }
@@ -31,7 +37,8 @@
       }
     }
 
-    &--slide {
+    &--collapse {
+      transform: rotate(180deg);
       @media (min-width: $bp-l) {
         display: none;
       }
@@ -41,6 +48,7 @@
   &__content {
     overflow: hidden;
     max-height: 100%;
+    background: $alabaster;
   }
 
   &__footer {
@@ -51,5 +59,37 @@
 
   @media (max-width: $bp-l) {
     margin-top: 10px;
+  }
+
+  &--collapsed {
+    grid-template: 40px / 1fr;
+  }
+
+  &--collapsed &__content,
+  &--collapsed &__footer {
+    max-height: 0;
+    overflow: hidden;
+  }
+
+  &--collapsed &__control-button--collapse {
+    transform: none;
+  }
+
+  &__chart-label {
+    font-family: $maven !important;
+  }
+
+  @media(min-width: $bp-l) {
+    &--expanded {
+      position: absolute;
+      width: calc(100vw - 20px);
+      height: calc(100vh - 20px);
+      z-index: 100;
+      grid-template: 60px auto 40px;
+    }
+
+    &--expanded &__title {
+      font-size: 22px;
+    }
   }
 }

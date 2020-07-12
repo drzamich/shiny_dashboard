@@ -2,8 +2,8 @@ import React from 'react';
 import Map from './Map';
 import Header from './Header';
 import Cards from './Cards';
-import Bars from './Bars';
-import Summary from './Summary';
+import Production from './Production';
+import TopCities from './TopCities';
 import Loading from './Loading';
 import mockedMonths from '../mocks/months.json';
 
@@ -23,8 +23,8 @@ function App() {
       <MonthContext.Provider value={monthCodes}>
         <Header />
         <Cards />
-        <Bars />
-        <Summary />
+        <Production />
+        <TopCities />
         <Map />
       </MonthContext.Provider>
     </div>

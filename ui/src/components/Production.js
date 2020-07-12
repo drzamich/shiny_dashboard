@@ -2,10 +2,11 @@ import React from 'react';
 import mockedDates from '../mocks/production_dates.json';
 import mockedValues from '../mocks/production_values.json';
 import ChartBox from './ChartBox';
+import { LABELS_STYLE } from './ChartBox';
 
 const DAYS_TO_DISPLAY = ['01', '15']; // and implicitly 30/31
 
-export default function Bars() {
+export default function Production() {
   const [dates, setDates] = React.useState(mockedDates);
   const [values, setValues] = React.useState(mockedValues);
 
@@ -35,6 +36,12 @@ export default function Bars() {
           }
           return '';
         },
+        style: LABELS_STYLE,
+      },
+    },
+    yaxis: {
+      labels: {
+        style: LABELS_STYLE,
       },
     },
     tooltip: {
@@ -56,7 +63,7 @@ export default function Bars() {
 
   return (
     <ChartBox
-      name="bars"
+      name="production"
       title="Production"
       chartOptions={options}
       chartSeries={series}

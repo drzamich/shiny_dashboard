@@ -5,6 +5,10 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faDownload } from '@fortawesome/free-solid-svg-icons';
 import DashboardBox from './DashboardBox';
 
+export const LABELS_STYLE = {
+  cssClass: 'dashboard-box__chart-label',
+};
+
 export default function ChartBox({
   name,
   title,
@@ -14,13 +18,12 @@ export default function ChartBox({
 }) {
   const footerRef = React.useRef(null);
 
-  React.useLayoutEffect(() => {
+  React.useEffect(() => {
     // Move chart toolbar to footer
     const toolbarSelector = `.${name} .apexcharts-toolbar`;
     const toolbarnode = document.querySelector(toolbarSelector);
     const footerSelector = `.${name} .dashboard-box__footer`;
     const footerNode = document.querySelector(footerSelector);
-    console.log(footerSelector);
     footerNode && footerNode.appendChild(toolbarnode);
 
     // Change icon

@@ -3,6 +3,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import {
   faSync,
   faExpandArrowsAlt,
+  faCompressArrowsAlt,
   faChevronDown,
 } from '@fortawesome/free-solid-svg-icons';
 import MonthSelect from './controls/MonthSelect';
@@ -16,14 +17,14 @@ export default function DashboardBox({
   className = '',
 }) {
   const [expanded, setExpand] = React.useState(false);
-  const [hidden, setHidden] = React.useState(false);
+  const [collapsed, setCollapsed] = React.useState(false);
 
   const onExpand = () => {
     setExpand((expanded) => !expanded);
   };
 
-  const onSlide = () => {
-    setHidden((hidden) => !hidden);
+  const onCollapse = () => {
+    setCollapsed((hidden) => !hidden);
   };
 
   return (
@@ -31,11 +32,11 @@ export default function DashboardBox({
       className={`${name} grid__item dashboard-box ${
         className ? className : ''
       } ${expanded ? 'dashboard-box--expanded' : ''} ${
-        hidden ? 'dashboard-box--hidden' : ''
+        collapsed ? 'dashboard-box--collapsed' : ''
       }`}
     >
       <div className="dashboard-box__header">
-        <h3>{title}</h3>
+        <h3 className="dashboard-box__title">{title}</h3>
         <div className="dahsboard-box__controls">
           <button
             type="button"
@@ -49,12 +50,12 @@ export default function DashboardBox({
             onClick={onExpand}
             className="dashboard-box__control-button dashboard-box__control-button--expand"
           >
-            <FontAwesomeIcon icon={faExpandArrowsAlt} />
+            <FontAwesomeIcon icon={expanded ? faCompressArrowsAlt : faExpandArrowsAlt} />
           </button>
           <button
             type="button"
-            onClick={onSlide}
-            className="dashboard-box__control-button dashboard-box__control-button--slide"
+            onClick={onCollapse}
+            className="dashboard-box__control-button dashboard-box__control-button--collapse"
           >
             <FontAwesomeIcon icon={faChevronDown} />
           </button>

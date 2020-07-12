@@ -7,7 +7,6 @@ import DashboardBox from './DashboardBox';
 export default function SalesMap() {
   const [data, setData] = React.useState(mockedData);
   window.SD_updateMapData = (newData) => {
-    console.log(newData);
     setData(newData);
   };
 

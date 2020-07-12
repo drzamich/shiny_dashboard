@@ -2,7 +2,7 @@ html,
 body,
 #root {
   height: 100%;
-  font-family: $roboto;
+  font-family: $maven;
   background: $alabaster;
   color: $abbey;
   font-size: 16px;
@@ -22,8 +22,8 @@ body,
       grid-template-areas:
         "header header header header"
         "cards  cards cards cards"
-        "bars map map map"
-        "summary map map map";
+        "production map map map"
+        "top-cities map map map";
       gap: 15px;
 
       .header {
@@ -34,16 +34,16 @@ body,
         grid-area: cards;
       }
 
-      .bars {
-        grid-area: bars;
+      .production {
+        grid-area: production;
       }
 
       .map {
         grid-area: map;
       }
 
-      .summary {
-        grid-area: summary;
+      .top-cities {
+        grid-area: top-cities;
       }
     }
   }

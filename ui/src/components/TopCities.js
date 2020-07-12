@@ -1,6 +1,7 @@
 import React from 'react';
 import mockedData from '../mocks/top_sales.json';
 import ChartBox from './ChartBox';
+import { LABELS_STYLE } from './ChartBox';
 
 export default function Summary() {
   const [data, setData] = React.useState(mockedData);
@@ -39,12 +40,21 @@ export default function Summary() {
     },
     xaxis: {
       categories: cities,
+      labels: {
+        style: LABELS_STYLE,
+
+      }
+    },
+    yaxis: {
+      labels: {
+        style: LABELS_STYLE,
+      }
     },
   };
 
   return (
     <ChartBox
-      name="summary"
+      name="top-cities"
       title="Top cities by revenue"
       chartOptions={options}
       chartSeries={series}
