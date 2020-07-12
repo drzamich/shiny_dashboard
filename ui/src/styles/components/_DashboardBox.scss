@@ -1,0 +1,55 @@
+.dashboard-box {
+  @include shadow;
+  display: grid;
+  grid-template: 40px auto 40px / 1fr;
+
+  &__header,
+  &__footer,
+  &__content {
+    @include valgin-middle;
+  }
+
+  &__header {
+    background: $polar;
+    padding: 0 10px;
+    display: flex;
+    justify-content: space-between;
+  }
+
+  &__control-button {
+    border: 0;
+    background: transparent;
+
+    svg {
+      opacity: 0.7;
+    }
+
+    &--expand {
+      display: none;
+      @media (min-width: $bp-l) {
+        display: initial;
+      }
+    }
+
+    &--slide {
+      @media (min-width: $bp-l) {
+        display: none;
+      }
+    }
+  }
+
+  &__content {
+    overflow: hidden;
+    max-height: 100%;
+  }
+
+  &__footer {
+    background: $seashell;
+    padding-left: 10px;
+    justify-content: space-between;
+  }
+
+  @media (max-width: $bp-l) {
+    margin-top: 10px;
+  }
+}

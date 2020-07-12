@@ -1,8 +1,6 @@
 import React from 'react';
-import Chart from 'react-apexcharts';
-
-import MonthSelect from './controls/MonthSelect';
 import mockedData from '../mocks/top_sales.json';
+import ChartBox from './ChartBox';
 
 export default function Summary() {
   const [data, setData] = React.useState(mockedData);
@@ -23,7 +21,7 @@ export default function Summary() {
   const series = [
     {
       name: 'Total profit',
-      data: profits
+      data: profits,
     },
   ];
   const options = {
@@ -40,19 +38,17 @@ export default function Summary() {
       enabled: false,
     },
     xaxis: {
-      categories: cities
+      categories: cities,
     },
   };
 
   return (
-    <section className="dashboard-box summary">
-      <div className="dashboard-box__header">
-        <h3>Top cities by revenue</h3>
-      </div>
-      <div className="dashboard-box__content">
-      <Chart type="bar" options={options} series={series} />
-      <MonthSelect onChange={onMonthChange} />
-      </div>
-    </section>
+    <ChartBox
+      name="summary"
+      title="Top cities by revenue"
+      chartOptions={options}
+      chartSeries={series}
+      onMonthChange={onMonthChange}
+    />
   );
 }

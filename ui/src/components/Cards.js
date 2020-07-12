@@ -37,7 +37,7 @@ function Card({ type, value, change, onTimespanChange }) {
   const displayValue = numberWithSpaces(value.toFixed(0));
 
   return (
-    <div className="card__container">
+    <div className="grid__item card__container">
       <div className={`card card-${type}`}>
         <div className="card__header">
           <h3 className="card__value">{`${valPrefix || ''} ${displayValue}`}</h3>

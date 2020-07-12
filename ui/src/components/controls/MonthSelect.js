@@ -31,6 +31,7 @@ export default function MonthSelect({ onChange }) {
       keyValues={keyValues}
       currentKey={currentMonth}
       onChange={onSelectChange}
+      transparent
     />
   );
 }

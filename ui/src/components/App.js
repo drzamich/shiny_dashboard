@@ -19,7 +19,7 @@ function App() {
   if (loading) return <Loading />;
 
   return (
-    <div className="app" data-testid="app">
+    <div className="app grid__container" data-testid="app">
       <MonthContext.Provider value={monthCodes}>
         <Header />
         <Cards />

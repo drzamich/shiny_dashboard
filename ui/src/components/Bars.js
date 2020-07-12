@@ -1,8 +1,7 @@
 import React from 'react';
-import MonthSelect from './controls/MonthSelect';
 import mockedDates from '../mocks/production_dates.json';
 import mockedValues from '../mocks/production_values.json';
-import Chart from 'react-apexcharts';
+import ChartBox from './ChartBox';
 
 const DAYS_TO_DISPLAY = ['01', '15']; // and implicitly 30/31
 
@@ -16,7 +15,7 @@ export default function Bars() {
   };
 
   const onMonthChange = (newMonth) => {
-    if(window.Shiny) {
+    if (window.Shiny) {
       window.Shiny.setInputValue('productionMonth', newMonth);
     }
   };
@@ -33,18 +32,19 @@ export default function Bars() {
           const [, month, day] = value.split('-');
           if (DAYS_TO_DISPLAY.includes(day) || dates.length - 1 === index) {
             return `${month}-${day}`;
-          } return '';
-        }
-      }
+          }
+          return '';
+        },
+      },
     },
     tooltip: {
       x: {
-        formatter: label => label,
-      }
+        formatter: (label) => label,
+      },
     },
     dataLabels: {
-      enabled: false
-    }
+      enabled: false,
+    },
   };
 
   const series = [
@@ -55,14 +55,12 @@ export default function Bars() {
   ];
 
   return (
-    <section className="dashboard-box bars">
-      <div className="dashboard-box__header">
-        <h3>Production</h3>
-      </div>
-      <div className="dashboard-box__content">
-      <Chart type="bar" options={options} series={series} />
-      <MonthSelect onChange={onMonthChange} />
-      </div>
-    </section>
+    <ChartBox
+      name="bars"
+      title="Production"
+      chartOptions={options}
+      chartSeries={series}
+      onMonthChange={onMonthChange}
+    />
   );
-};
+}

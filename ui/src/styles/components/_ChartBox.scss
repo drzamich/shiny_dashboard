@@ -1,0 +1,19 @@
+.chart-box {
+  .apexcharts {
+    &-toolbar {
+      position: relative;
+    }
+
+    &-menu {
+      top: initial;
+      bottom: 100%;
+      min-width: 120px;
+
+      &-item {
+        &:hover {
+          background: $alabaster;
+        }
+      }
+    }
+  }
+}

@@ -1,17 +1,20 @@
 import React from 'react';
 import { Map, Tooltip, TileLayer, CircleMarker } from 'react-leaflet';
 import 'leaflet/dist/leaflet.css';
-import MonthSelect from './controls/MonthSelect';
 import mockedData from '../mocks/sales.json';
+import DashboardBox from './DashboardBox';
 
 export default function SalesMap() {
   const [data, setData] = React.useState(mockedData);
-  window.SD_updateMapData = (newData) => { console.log(newData); setData(newData); };
+  window.SD_updateMapData = (newData) => {
+    console.log(newData);
+    setData(newData);
+  };
 
   let lats, lngs, mapCenter, mapBounds;
   mapCenter = [0, 0];
 
-  if(data.length) {
+  if (data.length) {
     lats = data.map(({ loc_lat }) => loc_lat);
     lngs = data.map(({ loc_lng }) => loc_lng);
     mapCenter = [
@@ -26,37 +29,35 @@ export default function SalesMap() {
   }
 
   const onMonthChange = (newMonth) => {
-    if(window.Shiny) {
+    if (window.Shiny) {
       window.Shiny.setInputValue('salesMonth', newMonth);
     }
   };
 
   return (
-      <section className="dashboard-box map">
-      <div className="dashboard-box__header">
-        <h3>Sales map</h3>
-      </div>
-        <div className="dashboard-box__content">
-          <Map center={mapCenter} bounds={mapBounds} zoom={1}>
-            <TileLayer
-              attribution='&amp;copy <a href="http://osm.org/copyright">OpenStreetMap</a> contributors'
-              url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
-            />
-            {
-              data.map(({ loc_city, loc_lat, loc_lng, rank, total_profit }) => (
-                <CircleMarker center={[loc_lat, loc_lng]} fillOpacity={0.5} stroke={false} radius={rank * 25 + 10} key={loc_city}>
-                  <Tooltip>
-                    <h3>{loc_city}</h3>
-                    <p><b>Total profit:</b> {total_profit}</p>
-                  </Tooltip>
-                </CircleMarker>
-              ))
-            }
-          </Map>
-                  <div className="map__controls">
-            <MonthSelect onChange={onMonthChange} />
-        </div>
-        </div>
-      </section>
-    );
+    <DashboardBox name="map" title="Sales map" onMonthChange={onMonthChange}>
+      <Map center={mapCenter} bounds={mapBounds} zoom={1}>
+        <TileLayer
+          attribution='&amp;copy <a href="http://osm.org/copyright">OpenStreetMap</a> contributors'
+          url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
+        />
+        {data.map(({ loc_city, loc_lat, loc_lng, rank, total_profit }) => (
+          <CircleMarker
+            center={[loc_lat, loc_lng]}
+            fillOpacity={0.5}
+            stroke={false}
+            radius={rank * 25 + 10}
+            key={loc_city}
+          >
+            <Tooltip>
+              <h3>{loc_city}</h3>
+              <p>
+                <b>Total profit:</b> {total_profit}
+              </p>
+            </Tooltip>
+          </CircleMarker>
+        ))}
+      </Map>
+    </DashboardBox>
+  );
 }
