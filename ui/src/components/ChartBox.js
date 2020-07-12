@@ -5,8 +5,12 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faDownload } from '@fortawesome/free-solid-svg-icons';
 import DashboardBox from './DashboardBox';
 
-export const LABELS_STYLE = {
-  cssClass: 'dashboard-box__chart-label',
+export const LABELS = {
+  style: {
+    cssClass: 'dashboard-box__chart-label',
+    fontSize: '16px',
+  },
+  hideOverlappingLabels: true,
 };
 
 export default function ChartBox({

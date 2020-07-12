@@ -1,7 +1,7 @@
 import React from 'react';
 import mockedData from '../mocks/top_sales.json';
 import ChartBox from './ChartBox';
-import { LABELS_STYLE } from './ChartBox';
+import { LABELS } from './ChartBox';
 
 export default function Summary() {
   const [data, setData] = React.useState(mockedData);
@@ -41,14 +41,12 @@ export default function Summary() {
     xaxis: {
       categories: cities,
       labels: {
-        style: LABELS_STYLE,
-
+        formatter: (value) => `$${value}`,
+        ...LABELS
       }
     },
     yaxis: {
-      labels: {
-        style: LABELS_STYLE,
-      }
+      labels: LABELS,
     },
   };
 

@@ -1,10 +1,15 @@
-.summary {
+.top-cities {
   .dashboard-box {
-    &__header {
-
-    }
     &__content {
+      [type="bar"] {
+        path {
+          fill: $scooter;
+        }
+      }
 
+      .apexcharts-tooltip-marker {
+        background: $scooter !important;
+      }
     }
   }
 }

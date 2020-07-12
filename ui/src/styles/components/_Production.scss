@@ -1,12 +1,14 @@
 .production {
   .dashboard-box {
     &__content {
-      display: flex;
-      flex-direction: column;
-      justify-content: flex-end;
+      [type='bar'] {
+        path {
+          fill: $neonCarrot;
+        }
+      }
 
-      .bar {
-        height: 100%;
+      .apexcharts-tooltip-marker {
+        background: $neonCarrot !important;
       }
     }
   }

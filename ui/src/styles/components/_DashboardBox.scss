@@ -49,6 +49,9 @@
     overflow: hidden;
     max-height: 100%;
     background: $alabaster;
+    display: flex;
+    justify-content: center;
+    align-items: center;
   }
 
   &__footer {
@@ -77,6 +80,7 @@
 
   &__chart-label {
     font-family: $maven !important;
+    font-size: 12px !important;
   }
 
   @media(min-width: $bp-l) {

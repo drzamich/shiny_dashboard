@@ -1,6 +1,11 @@
 .chart-box {
   .dashboard-box {
     &__content {
+      [type='bar'] {
+        width: 90%;
+        height: 90%;
+      }
+
       .apexcharts-toolbar {
         display: none;
       }
@@ -33,13 +38,17 @@
   }
 }
 
-@media(min-width: $bp-l) {
+@media (min-width: $bp-l) {
   .dashboard-box {
     &--expanded &__content {
-      [type="bar"] {
-        width: 90%;
-        height: 90%;
+      [type='bar'] {
+        width: 70%;
+        height: 70%;
       }
+    }
+
+    &--expanded &__chart-label {
+      font-size: 1.1rem !important;
     }
   }
 }
