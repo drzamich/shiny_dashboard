@@ -23,7 +23,7 @@ export default function Production() {
 
   const options = {
     chart: {
-      id: 'basic-bar',
+      id: 'production',
     },
     xaxis: {
       categories: dates,

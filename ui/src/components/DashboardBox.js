@@ -1,7 +1,6 @@
 import React from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import {
-  faSync,
   faExpandArrowsAlt,
   faCompressArrowsAlt,
   faChevronDown,
@@ -44,13 +43,6 @@ export default function DashboardBox({
       <div className="dashboard-box__header">
         <h3 className="dashboard-box__title">{title}</h3>
         <div className="dahsboard-box__controls">
-          <button
-            type="button"
-            onClick={onRefresh}
-            className="dashboard-box__control-button dashboard-box__control-button--refresh"
-          >
-            <FontAwesomeIcon icon={faSync} />
-          </button>
           <button
             type="button"
             onClick={onExpand}

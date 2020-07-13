@@ -29,7 +29,6 @@ export default function Summary() {
   const options = {
     chart: {
       type: 'bar',
-      height: '100px',
     },
     plotOptions: {
       bar: {
