@@ -1,6 +1,5 @@
 import React from 'react';
 import Dropdown from './Dropdown';
-import { faArchive, faChartLine, faCartArrowDown, faMoneyBill  } from '@fortawesome/free-solid-svg-icons';
 
 export const TIMESPANS = {
   day: 'daily stats',
@@ -9,27 +8,6 @@ export const TIMESPANS = {
 };
 
 export const DEFAULT_TIMESPAN = TIMESPANS[1];
-
-export const METRICS_TYPES = {
-  total_profit: {
-    name: 'Total profit',
-    valPrefix: '$',
-    icon: faMoneyBill,
-  },
-  mean_profit: {
-    name: 'Average profit',
-    valPrefix: '$',
-    icon: faChartLine,
-  },
-  units_produced: {
-    name: 'Units produced',
-    icon: faArchive,
-  },
-  units_sold: {
-    name: 'Units sold',
-    icon: faCartArrowDown,
-  },
-};
 
 export default function RangeSelect({ onChange }) {
   const [timespan, setTimespan] = React.useState('month');

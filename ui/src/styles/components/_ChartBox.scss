@@ -3,9 +3,10 @@
     &__content {
       [type='bar'] {
         width: 90%;
-        max-width: 90%;
         height: 90%;
-        max-height: 90%;
+        @include valgin-middle;
+        position: relative;
+        left: -3%;
       }
 
       .apexcharts-toolbar {

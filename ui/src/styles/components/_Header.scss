@@ -6,4 +6,8 @@
     text-transform: none;
     font-size: 2em;
   }
+
+  @media (max-width: $bp-l) {
+    margin-bottom: 10px;
+  }
 }

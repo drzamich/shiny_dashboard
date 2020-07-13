@@ -14,7 +14,7 @@ body,
     box-sizing: border-box;
     padding: 10px;
 
-    @media screen and (min-width: $bp-l) {
+    @media (min-width: $bp-l) {
       display: grid;
       height: 100%;
       grid-template-columns: 1fr 1fr 1fr 1fr;
