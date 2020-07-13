@@ -14,7 +14,7 @@ body,
     box-sizing: border-box;
     padding: 10px;
 
-    @media (min-width: $bp-l) {
+    @media screen and (min-width: $bp-l) {
       display: grid;
       height: 100%;
       grid-template-columns: 1fr 1fr 1fr 1fr;
@@ -51,5 +51,17 @@ body,
   &__item {
     min-width: 0;
     min-height: 0;
+
+    @media print {
+      &:not(.printable) {
+        display: none;
+      }
+    }
+  }
+}
+
+@media print {
+  @page {
+    size: landscape;
   }
 }

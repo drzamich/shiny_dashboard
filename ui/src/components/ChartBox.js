@@ -26,7 +26,7 @@ export default function ChartBox({
     // Move chart toolbar to footer
     const toolbarSelector = `.${name} .apexcharts-toolbar`;
     const toolbarnode = document.querySelector(toolbarSelector);
-    const footerSelector = `.${name} .dashboard-box__footer`;
+    const footerSelector = `.${name} .dashboard-box__export-buttons`;
     const footerNode = document.querySelector(footerSelector);
     footerNode && footerNode.appendChild(toolbarnode);
 
@@ -38,6 +38,7 @@ export default function ChartBox({
       `.${name} .apexcharts-menu-icon svg`
     );
     apexIconContainer.removeChild(apexIcon);
+    apexIconContainer.classList.add('dashboard-box__export-button', 'dashboard-box__export-button--import');
     const downloadIcon = <FontAwesomeIcon icon={faDownload} />;
     ReactDOM.render(downloadIcon, apexIconContainer);
   }, [name]);

@@ -3,7 +3,9 @@
     &__content {
       [type='bar'] {
         width: 90%;
+        max-width: 90%;
         height: 90%;
+        max-height: 90%;
       }
 
       .apexcharts-toolbar {
@@ -15,6 +17,7 @@
   .apexcharts {
     &-toolbar {
       position: relative;
+      padding-right: 0px;
     }
 
     &-tooltip {

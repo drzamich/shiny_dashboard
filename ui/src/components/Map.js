@@ -49,17 +49,21 @@ export default function SalesMap() {
             radius={rank * 25 + 10}
             key={loc_city}
           >
-            <Tooltip>
-              <div className="map__tooltip">
-                <h3 className="map__tooltip-title">{loc_city}</h3>
-                <p className="map__tooltip-text">
-                  <b>Total profit:</b> {`$${numberWithSpaces(total_profit.toFixed(0))}`}
-                </p>
-              </div>
-            </Tooltip>
+            <MapTooltip total_profit={total_profit} loc_city={loc_city}/>
           </CircleMarker>
         ))}
       </Map>
     </DashboardBox>
   );
 }
+
+const MapTooltip = ({ total_profit, loc_city, forPrinting = false }) => (
+  <Tooltip permanent={forPrinting}>
+  <div className={`map__tooltip${forPrinting ? ' printable' : ''}`}>
+    <h3 className="map__tooltip-title">{loc_city}</h3>
+    <p className="map__tooltip-text">
+      <b>Total profit:</b> {`$${numberWithSpaces(total_profit.toFixed(0))}`}
+    </p>
+  </div>
+</Tooltip>
+);

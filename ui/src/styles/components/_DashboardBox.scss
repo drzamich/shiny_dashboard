@@ -16,7 +16,8 @@
     justify-content: space-between;
   }
 
-  &__control-button {
+  &__control-button,
+  &__export-button {
     border: 0;
     background: transparent;
 
@@ -28,6 +29,7 @@
 
     svg {
       opacity: 0.7;
+      color: $abbey;
     }
 
     &--expand {
@@ -43,6 +45,10 @@
         display: none;
       }
     }
+
+    @media print {
+      display: none;
+    }
   }
 
   &__content {
@@ -56,7 +62,7 @@
 
   &__footer {
     background: $seashell;
-    padding-left: 10px;
+    padding: 0 5px;
     justify-content: space-between;
   }
 
@@ -83,7 +89,14 @@
     font-size: 12px !important;
   }
 
-  @media(min-width: $bp-l) {
+  &__export-buttons {
+    display: flex;
+    svg {
+      fill: none;
+    }
+  }
+
+  @media (min-width: $bp-l) {
     &--expanded {
       position: absolute;
       width: calc(100vw - 20px);
@@ -93,6 +106,16 @@
     }
 
     &--expanded &__title {
+      font-size: 22px;
+    }
+  }
+
+  @media print {
+    &.printable {
+      width: 100%;
+    }
+
+    .printable &__title {
       font-size: 22px;
     }
   }

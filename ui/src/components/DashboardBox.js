@@ -5,6 +5,7 @@ import {
   faExpandArrowsAlt,
   faCompressArrowsAlt,
   faChevronDown,
+  faPrint,
 } from '@fortawesome/free-solid-svg-icons';
 import MonthSelect from './controls/MonthSelect';
 
@@ -27,14 +28,19 @@ export default function DashboardBox({
     setCollapsed((hidden) => !hidden);
   };
 
+  const onPrint = () => {
+    document.querySelectorAll('.printable').forEach(element => element.classList.remove('printable'));
+    document.querySelector(`.${name}`).classList.add('printable');
+    window.print();
+  };
+
+  const classNames = [name, 'grid__item', 'dashboard-box',
+    className || '',
+    expanded ? 'dashboard-box--expanded' : '',
+    collapsed ? 'dashboard-box--collapsed' : ''].join(' ');
+
   return (
-    <section
-      className={`${name} grid__item dashboard-box ${
-        className ? className : ''
-      } ${expanded ? 'dashboard-box--expanded' : ''} ${
-        collapsed ? 'dashboard-box--collapsed' : ''
-      }`}
-    >
+    <section className={classNames}>
       <div className="dashboard-box__header">
         <h3 className="dashboard-box__title">{title}</h3>
         <div className="dahsboard-box__controls">
@@ -61,9 +67,22 @@ export default function DashboardBox({
           </button>
         </div>
       </div>
-      <div className="dashboard-box__content">{children}</div>
+      <div className="dashboard-box__content">
+        {children}
+      </div>
       <div className="dashboard-box__footer">
-        <MonthSelect onChange={onMonthChange} />
+        <div className="dashboard-box__range-selection">
+          <MonthSelect onChange={onMonthChange} />
+        </div>
+        <div className="dashboard-box__export-buttons">
+        <button
+            type="button"
+            onClick={onPrint}
+            className="dashboard-box__export-button dashboard-box__export-button--print"
+          >
+            <FontAwesomeIcon icon={faPrint} />
+          </button>
+        </div>
       </div>
     </section>
   );
