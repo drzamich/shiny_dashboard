@@ -1,11 +1,11 @@
 import React from 'react';
-import Map from './sections/Map';
-import Header from './sections/Header';
-import Cards from './sections/Cards';
-import Production from './sections/Production';
-import TopCities from './sections/TopCities';
-import Loading from './sections/Loading';
-import mockedMonths from '../mocks/months.json';
+import Map from 'components/sections/Map';
+import Header from 'components/sections/Header';
+import Cards from 'components/sections/Cards';
+import Production from 'components/sections/Production';
+import TopCities from 'components/sections/TopCities';
+import Loading from 'components/sections/Loading';
+import mockedMonths from 'mocks/months.json';
 
 export const MonthContext = React.createContext([]);
 
@@ -20,7 +20,7 @@ function App() {
 
   return (
     <>
-      <div className={`app grid__container ${loading ? ' grid__container--loading' : ''}`} data-testid="app">
+      <div className={`app grid__container ${loading ? ' grid__container--loading' : ''}`}>
         <MonthContext.Provider value={monthCodes}>
           <Header setLoading={setLoading} />
           <Cards />
@@ -32,6 +32,6 @@ function App() {
       <Loading visible={loading} />
     </>
   );
-};
+}
 
 export default App;

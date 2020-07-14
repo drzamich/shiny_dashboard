@@ -12,9 +12,9 @@ export const DEFAULT_TIMESPAN = TIMESPANS[1];
 export default function RangeSelect({ onChange }) {
   const [timespan, setTimespan] = React.useState('month');
 
-  const onItemClick = (timespan) => {
-    setTimespan(timespan);
-    onChange(timespan);
+  const onItemClick = (newTimespan) => {
+    setTimespan(newTimespan);
+    onChange(newTimespan);
   };
 
   return (

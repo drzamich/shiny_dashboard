@@ -3,7 +3,7 @@ import ReactDOM from 'react-dom';
 import Chart from 'react-apexcharts';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faDownload } from '@fortawesome/free-solid-svg-icons';
-import DashboardBox from './DashboardBox';
+import DashboardBox from 'components/layout/DashboardBox';
 
 export const LABELS = {
   style: {
@@ -28,17 +28,20 @@ export default function ChartBox({
     const toolbarnode = document.querySelector(toolbarSelector);
     const footerSelector = `.${name} .dashboard-box__export-buttons`;
     const footerNode = document.querySelector(footerSelector);
-    footerNode && footerNode.appendChild(toolbarnode);
+    if (footerNode) {
+      footerNode.appendChild(toolbarnode);
+    }
 
     // Change icon
     const apexIconContainer = document.querySelector(
-      `.${name} .apexcharts-menu-icon`
+      `.${name} .apexcharts-menu-icon`,
     );
     const apexIcon = document.querySelector(
-      `.${name} .apexcharts-menu-icon svg`
+      `.${name} .apexcharts-menu-icon svg`,
     );
     apexIconContainer.removeChild(apexIcon);
-    apexIconContainer.classList.add('dashboard-box__export-button', 'dashboard-box__export-button--import');
+    apexIconContainer.classList.add('dashboard-box__export-button',
+      'dashboard-box__export-button--import');
     const downloadIcon = <FontAwesomeIcon icon={faDownload} />;
     ReactDOM.render(downloadIcon, apexIconContainer);
   }, [name]);

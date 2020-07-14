@@ -1,5 +1,7 @@
 import React from 'react';
-import { render, cleanup, fireEvent, waitFor } from '@testing-library/react';
+import {
+  render, cleanup, fireEvent, waitFor,
+} from '@testing-library/react';
 
 import MonthSelect from '../components/controls/MonthSelect';
 import { MonthContext } from '../components/App';

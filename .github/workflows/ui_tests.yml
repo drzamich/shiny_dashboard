@@ -1,4 +1,4 @@
-name: UI unit tests
+name: UI code quality check
 
 on:
   push:
@@ -15,7 +15,7 @@ on:
 
 jobs:
   test_ui:
-    name: Run Jest unit tests
+    name: Run unit tests and ESLint checks
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
@@ -28,3 +28,6 @@ jobs:
            npm ci
            npm test
            npm run build
+      - name: Run ESLint checks
+        working-directory: ./ui
+        run: npm run eslint

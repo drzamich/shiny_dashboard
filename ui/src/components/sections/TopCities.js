@@ -1,3 +1,4 @@
+/* eslint-disable camelcase */
 import React from 'react';
 import mockedData from 'mocks/top_sales.json';
 import ChartBox, { LABELS } from 'components/layout/ChartBox';

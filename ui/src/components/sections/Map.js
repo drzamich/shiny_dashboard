@@ -1,5 +1,8 @@
+/* eslint-disable camelcase */
 import React from 'react';
-import { Map, Tooltip, TileLayer, CircleMarker } from 'react-leaflet';
+import {
+  Map, Tooltip, TileLayer, CircleMarker,
+} from 'react-leaflet';
 import 'leaflet/dist/leaflet.css';
 import mockedData from 'mocks/sales.json';
 import DashboardBox from 'components/layout/DashboardBox';
@@ -11,7 +14,8 @@ export default function SalesMap() {
     setData(newData);
   };
 
-  let lats, lngs, mapCenter, mapBounds;
+  let lats; let lngs; let mapCenter; let
+    mapBounds;
   mapCenter = [0, 0];
 
   if (data.length) {
@@ -41,7 +45,9 @@ export default function SalesMap() {
           attribution='&amp;copy <a href="http://osm.org/copyright">OpenStreetMap</a> contributors'
           url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
         />
-        {data.map(({ loc_city, loc_lat, loc_lng, rank, total_profit }) => (
+        {data.map(({
+          loc_city, loc_lat, loc_lng, rank, total_profit,
+        }) => (
           <CircleMarker
             center={[loc_lat, loc_lng]}
             fillOpacity={0.7}
@@ -49,7 +55,7 @@ export default function SalesMap() {
             radius={rank * 25 + 10}
             key={loc_city}
           >
-            <MapTooltip total_profit={total_profit} loc_city={loc_city}/>
+            <MapTooltip total_profit={total_profit} loc_city={loc_city} />
           </CircleMarker>
         ))}
       </Map>
@@ -59,11 +65,13 @@ export default function SalesMap() {
 
 const MapTooltip = ({ total_profit, loc_city, forPrinting = false }) => (
   <Tooltip permanent={forPrinting}>
-  <div className={`map__tooltip${forPrinting ? ' printable' : ''}`}>
-    <h3 className="map__tooltip-title">{loc_city}</h3>
-    <p className="map__tooltip-text">
-      <b>Total profit:</b> {`$${numberWithSpaces(total_profit.toFixed(0))}`}
-    </p>
-  </div>
-</Tooltip>
+    <div className={`map__tooltip${forPrinting ? ' printable' : ''}`}>
+      <h3 className="map__tooltip-title">{loc_city}</h3>
+      <p className="map__tooltip-text">
+        <b>Total profit:</b>
+        {' '}
+        {`$${numberWithSpaces(total_profit.toFixed(0))}`}
+      </p>
+    </div>
+  </Tooltip>
 );

@@ -28,10 +28,8 @@
     "build": "react-scripts build",
     "postbuild": "cp -a build/* ../www",
     "test": "react-scripts test --env=jsdom-fourteen",
-    "eject": "react-scripts eject"
-  },
-  "eslintConfig": {
-    "extends": "react-app"
+    "eject": "react-scripts eject",
+    "eslint": "eslint ./src --ext .js,.jsx"
   },
   "browserslist": {
     "production": [
@@ -44,5 +42,13 @@
       "last 1 firefox version",
       "last 1 safari version"
     ]
+  },
+  "devDependencies": {
+    "eslint": "^6.6.0",
+    "eslint-config-airbnb": "^18.2.0",
+    "eslint-plugin-import": "^2.22.0",
+    "eslint-plugin-jsx-a11y": "^6.3.1",
+    "eslint-plugin-react": "^7.20.3",
+    "eslint-plugin-react-hooks": "^4.0.0"
   }
 }

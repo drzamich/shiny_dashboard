@@ -1,6 +1,8 @@
 import React from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faArchive, faChartLine, faCartArrowDown, faMoneyBill  } from '@fortawesome/free-solid-svg-icons';
+import {
+  faArchive, faChartLine, faCartArrowDown, faMoneyBill,
+} from '@fortawesome/free-solid-svg-icons';
 import { numberWithSpaces } from 'utilities/helpers';
 import defaultData from 'mocks/metrics.json';
 import RangeSelect from 'components/controls/RangeSelect';
@@ -38,20 +40,24 @@ export default function Cards() {
   window.SD_updateCardsData = (newData) => { setData(newData); };
 
   const onTimespanChange = (timespan, type) => {
-    setTimespans(timespans => ({ ...timespans, [type]: timespan }));
+    setTimespans((curTimespans) => ({ ...curTimespans, [type]: timespan }));
   };
 
   const cards = Object.keys(CARD_TYPES).map((type) => {
     const timespan = timespans[type];
     const { value, change } = data[timespan][type];
-    const props = { type, value, change, onTimespanChange };
+    const props = {
+      type, value, change, onTimespanChange,
+    };
     return <Card {...props} key={type} />;
   });
 
   return <section className="cards">{cards}</section>;
 }
 
-function Card({ type, value, change, onTimespanChange }) {
+function Card({
+  type, value, change, onTimespanChange,
+}) {
   const { name, valPrefix } = CARD_TYPES[type];
   const changeType = change < 0 ? 'negative' : 'positive';
   const changePercent = `${(change * 100).toFixed(2)} %`;

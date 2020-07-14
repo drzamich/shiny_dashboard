@@ -13,14 +13,13 @@ export default function DashboardBox({
   title,
   children,
   onMonthChange,
-  onRefresh,
   className = '',
 }) {
   const [expanded, setExpand] = React.useState(false);
   const [collapsed, setCollapsed] = React.useState(false);
 
   const onExpand = () => {
-    setExpand((expanded) => !expanded);
+    setExpand((curExpanded) => !curExpanded);
   };
 
   const onCollapse = () => {
@@ -28,7 +27,9 @@ export default function DashboardBox({
   };
 
   const onPrint = () => {
-    document.querySelectorAll('.printable').forEach(element => element.classList.remove('printable'));
+    document.querySelectorAll('.printable').forEach(
+      (element) => element.classList.remove('printable'),
+    );
     document.querySelector(`.${name}`).classList.add('printable');
     window.print();
   };
@@ -67,7 +68,7 @@ export default function DashboardBox({
           <MonthSelect onChange={onMonthChange} />
         </div>
         <div className="dashboard-box__export-buttons">
-        <button
+          <button
             type="button"
             onClick={onPrint}
             className="dashboard-box__export-button dashboard-box__export-button--print"

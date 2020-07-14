@@ -1,13 +1,19 @@
-
 import React from 'react';
 import { Dropdown } from 'react-bootstrap';
 import 'bootstrap/dist/css/bootstrap.min.css';
 
-export default function CustomDropdown({ keyValues, currentKey, onChange, transparent = false }) {
+export default function CustomDropdown({
+  keyValues, currentKey, onChange, transparent = false,
+}) {
   return (
     <div className="range-select__comtainer">
       <Dropdown>
-        <Dropdown.Toggle variant="secondary" id="dropdown" size="sm" className={`${transparent ? 'transparent' : 'opaque'}`}>
+        <Dropdown.Toggle
+          variant="secondary"
+          id="dropdown"
+          size="sm"
+          className={`${transparent ? 'transparent' : 'opaque'}`}
+        >
           { keyValues[currentKey] }
         </Dropdown.Toggle>
 
@@ -16,7 +22,9 @@ export default function CustomDropdown({ keyValues, currentKey, onChange, transp
             <Dropdown.Item
               key={key}
               onClick={() => onChange(key)}
-            >{keyValues[key]}</Dropdown.Item>
+            >
+              {keyValues[key]}
+            </Dropdown.Item>
           ))}
         </Dropdown.Menu>
       </Dropdown>

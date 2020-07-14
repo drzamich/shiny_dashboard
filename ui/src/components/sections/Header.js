@@ -17,11 +17,12 @@ export default function Header() {
     <header className="header grid__item">
       <h1 className="header__page-title">Enterprise Shiny Dashboards</h1>
       <button
-            type="button"
-            onClick={onRefresh}
-            className={`dashboard-box__control-button${refreshing ? ' dashboard-box__control-button--rotating' : ''}`}
-          >
-            <FontAwesomeIcon icon={faSync} size="lg" />
+        type="button"
+        onClick={onRefresh}
+        className={`dashboard-box__control-button${
+          refreshing ? ' dashboard-box__control-button--rotating' : ''}`}
+      >
+        <FontAwesomeIcon icon={faSync} size="lg" />
       </button>
     </header>
   );
