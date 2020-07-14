@@ -1,6 +1,6 @@
 app.R
 server.R
-data-helpers.R
-gui-helpers.R
+data-helper.R
+gui-helper.R
 data
 www
