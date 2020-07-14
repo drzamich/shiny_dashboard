@@ -1,11 +1,9 @@
 .header {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
+  @include valgin-middle-space-between;
 
   &__page-title {
     text-transform: none;
-    font-size: 2em;
+    font-size: 2rem;
   }
 
   @media (max-width: $bp-l) {

@@ -1,9 +1,7 @@
 ## TODOs
 
 ### Functional
-* [ ] Refresh button(s)
 * [ ] Exporting the map
-* [ ] Loading state for the whole app
 * [ ] Clicking outside the export menu closes the list
 
 ### Visual

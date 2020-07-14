@@ -2,16 +2,11 @@ html,
 body,
 #root {
   height: 100%;
-  font-family: $maven;
-  background: $alabaster;
-  color: $abbey;
-  font-size: 16px;
 }
 
 .grid {
   &__container {
     display: block;
-    box-sizing: border-box;
     padding: 10px;
 
     @media (min-width: $bp-l) {

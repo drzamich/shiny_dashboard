@@ -1,0 +1,10 @@
+.loading {
+  &__container {
+    @include full-center;
+    @include full-size;
+  }
+
+  svg {
+    animation: $spinning;
+  }
+}

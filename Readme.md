@@ -33,3 +33,10 @@ python data/fake_data_generator.py
 
 ## Usage
 Open the `app.R` file in RStudio and click on the **Run App**  button.
+
+## Development
+### UI
+To run the UI as React app in development mode, run:
+```
+REACT_APP_DEV_MODE=1 npm start
+```

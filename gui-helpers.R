@@ -29,18 +29,20 @@ genetate_mocks <- function(metrics, months, sales, production, last_month) {
   }
 }
 
-initialize_gui_data <- function(sales, production) {
+initialize_gui_data <- function(sales, production, refresh  = FALSE) {
   months <- extract_months(sales)
   metrics <- calculate_metrics(sales, production)
   last_month = last(months)
 
+  method <- if(isTRUE(refresh)) 'setRefreshing' else 'setLoading'
+  method_calll <- paste0('SD_', method, '(false)')
+  runjs(method_calll)
   update_production_data(production, last_month)
   update_sales_data(sales, last_month)
 
   top_sales = 3
   update_top_sales(sales, last_month, top_sales)
 
-  runjs('SD_setLoading(false)')
   runjs(paste0('SD_setMonthCodes(', toJSON(months) ,')'))
   runjs(paste0('SD_updateCardsData(', toJSON(metrics, auto_unbox = TRUE),')'))
 

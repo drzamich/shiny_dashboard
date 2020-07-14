@@ -5,8 +5,6 @@ $bp-s: 768px;
 $bp-l: 1000px;
 $bp-xl: 1200px;
 
-// Layout
-
 // Fonts
 $maven: 'Maven Pro', sans-serif;
 
@@ -22,3 +20,8 @@ $scooter: #29BED7;
 $conifer: #BFD851;
 $neonCarrot: #FE9832;
 $carnation: #FB5050;
+
+// Animations
+@keyframes spin { 100% { transform:rotate(360deg); } }
+$spinning: spin 1s ease-in-out infinite;
+$rotating: spin 1s linear infinite;

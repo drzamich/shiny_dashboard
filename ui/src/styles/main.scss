@@ -6,11 +6,12 @@
 @import 'partials/general';
 @import 'partials/layout';
 
-@import 'components/Production';
 @import 'components/Cards';
-@import 'components/Dropdown';
-@import 'components/Header';
-@import 'components/Map';
 @import 'components/ChartBox';
 @import 'components/DashboardBox';
+@import 'components/Dropdown';
+@import 'components/Header';
+@import 'components/Loading';
+@import 'components/Production';
+@import 'components/Map';
 @import 'components/TopCities';

@@ -12,8 +12,7 @@
   &__header {
     background: $polar;
     padding: 0 10px;
-    display: flex;
-    justify-content: space-between;
+    @include valgin-middle-space-between;
   }
 
   &__control-button,
@@ -46,6 +45,10 @@
       }
     }
 
+    &--rotating {
+      animation: $rotating;
+    }
+
     @media print {
       display: none;
     }
@@ -55,15 +58,13 @@
     overflow: hidden;
     max-height: 100%;
     background: $alabaster;
-    display: flex;
-    justify-content: center;
-    align-items: center;
+    @include full-center;
   }
 
   &__footer {
     background: $seashell;
     padding: 0 5px;
-    justify-content: space-between;
+    @include valgin-middle-space-between;
   }
 
   @media (max-width: $bp-l) {

@@ -30,6 +30,6 @@ server <- function(input, output) {
   shiny::observeEvent(input$dataRefresh, {
     .GlobalEnv$sales <- read.csv('data/sales.csv')
     .GlobalEnv$production <- read.csv('data/production.csv')
-    initialize_gui_data(sales, production)
+    initialize_gui_data(sales, production, refresh = TRUE)
   });
 }
