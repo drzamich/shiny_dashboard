@@ -13,9 +13,9 @@
 * [ ] Low quality of exported chars when they're small
 * [ ] Grey stripes on the map
 * [ ] A11Y: keyboard navigation, alt-texts
+* [ ] Placeholders for cases when there's no data for a chart
 
 ### Code quaity
-* [ ] Sort imports
-* [ ] Rewrite backend login to R6 classes
-* [ ] Base all font sizes on rem
+* [ ] Refactor the DataHelper and GuiHelper classes
 * [ ] Cache dependencies in GitHub workflows
+* [ ] Add comments and docstrings in frontend as well as backend code

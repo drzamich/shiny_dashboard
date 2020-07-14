@@ -33,7 +33,7 @@ jobs:
       - name: Install rsconnect
         run: |
           sudo apt-get install libcurl4-openssl-dev
-          R -e 'install.packages(pkgs = c("rsconnect", "shiny", "shinyjs", "dplyr", "jsonlite", "purrr", "data.table"))'
+          R -e 'install.packages(pkgs = c("rsconnect", "shiny", "shinyjs", "dplyr", "jsonlite", "R6", "data.table"))'
       - name: Publish to shinyapps
         run: |
           ls

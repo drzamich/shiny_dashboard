@@ -1,35 +1,32 @@
 library(shiny)
 library(shinyjs)
-library(jsonlite)
-library(data.table)
 
-source('data-helpers.R')
-source('gui-helpers.R')
+source('gui-helper.R')
 
-.GlobalEnv$sales <- read.csv('data/sales.csv')
-.GlobalEnv$production <- read.csv('data/production.csv')
+sales <- read.csv('data/sales.csv')
+production <- read.csv('data/production.csv')
 
 server <- function(input, output) {
-  useShinyjs(html = TRUE)
+  shinyjs::useShinyjs(html = TRUE)
+  user_session <- new.env()
 
-  initialize_gui_data(.GlobalEnv$sales, .GlobalEnv$production)
+  user_session$gui_helper <- GuiHelper$new(sales, production)
 
   shiny::observeEvent(input$productionMonth, {
-    .GlobalEnv$production %>% update_production_data(input$productionMonth)
+    user_session$gui_helper$update_production_data(input$productionMonth)
   });
 
   shiny::observeEvent(input$salesMonth, {
-    .GlobalEnv$sales %>% update_sales_data(input$salesMonth)
+    user_session$gui_helper$update_sales_data(input$salesMonth)
   });
 
-  top_sales <- 3
   shiny::observeEvent(input$topSalesMonth, {
-    .GlobalEnv$sales %>% update_top_sales(input$topSalesMonth, top_sales)
+    user_session$gui_helper$update_top_sales(input$topSalesMonth)
   });
 
   shiny::observeEvent(input$dataRefresh, {
-    .GlobalEnv$sales <- read.csv('data/sales.csv')
-    .GlobalEnv$production <- read.csv('data/production.csv')
-    initialize_gui_data(.GlobalEnv$sales, .GlobalEnv$production, refresh = TRUE)
+    sales <- read.csv('data/sales.csv')
+    production <- read.csv('data/production.csv')
+    user_session$gui_helper <- GuiHelper$new(sales, production, refresh = TRUE)
   });
 }
