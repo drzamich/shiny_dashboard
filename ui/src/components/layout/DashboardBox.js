@@ -6,7 +6,7 @@ import {
   faChevronDown,
   faPrint,
 } from '@fortawesome/free-solid-svg-icons';
-import MonthSelect from './controls/MonthSelect';
+import MonthSelect from 'components/controls/MonthSelect';
 
 export default function DashboardBox({
   name,

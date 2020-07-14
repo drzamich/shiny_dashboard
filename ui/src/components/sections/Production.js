@@ -1,8 +1,7 @@
 import React from 'react';
-import mockedDates from '../mocks/production_dates.json';
-import mockedValues from '../mocks/production_values.json';
-import ChartBox from './ChartBox';
-import { LABELS } from './ChartBox';
+import mockedDates from 'mocks/production_dates.json';
+import mockedValues from 'mocks/production_values.json';
+import ChartBox, { LABELS } from 'components/layout/ChartBox';
 
 const DAYS_TO_DISPLAY = ['01', '15']; // and implicitly 30/31
 

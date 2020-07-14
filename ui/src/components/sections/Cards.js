@@ -1,9 +1,9 @@
 import React from 'react';
-import { numberWithSpaces } from '../utilities/helpers';
-import defaultData from '../mocks/metrics.json';
-import RangeSelect from './controls/RangeSelect';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faArchive, faChartLine, faCartArrowDown, faMoneyBill  } from '@fortawesome/free-solid-svg-icons';
+import { numberWithSpaces } from 'utilities/helpers';
+import defaultData from 'mocks/metrics.json';
+import RangeSelect from 'components/controls/RangeSelect';
 
 export const CARD_TYPES = {
   total_profit: {

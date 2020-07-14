@@ -1,7 +1,7 @@
 import React from 'react';
 import moment from 'moment';
 import Dropdown from './Dropdown';
-import { MonthContext } from '../App';
+import { MonthContext } from 'components/App';
 
 export default function MonthSelect({ onChange }) {
   const [currentMonth, setCurrentMonth] = React.useState('');

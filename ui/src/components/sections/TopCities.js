@@ -1,8 +1,7 @@
 import React from 'react';
-import mockedData from '../mocks/top_sales.json';
-import ChartBox from './ChartBox';
-import { LABELS } from './ChartBox';
-import { numberWithSpaces } from '../utilities/helpers';
+import mockedData from 'mocks/top_sales.json';
+import ChartBox, { LABELS } from 'components/layout/ChartBox';
+import { numberWithSpaces } from 'utilities/helpers';
 
 const valueFormatter = (value) => `$${numberWithSpaces(value.toFixed(0))}`;
 

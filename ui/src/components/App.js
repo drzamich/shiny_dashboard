@@ -1,10 +1,10 @@
 import React from 'react';
-import Map from './Map';
-import Header from './Header';
-import Cards from './Cards';
-import Production from './Production';
-import TopCities from './TopCities';
-import Loading from './Loading';
+import Map from './sections/Map';
+import Header from './sections/Header';
+import Cards from './sections/Cards';
+import Production from './sections/Production';
+import TopCities from './sections/TopCities';
+import Loading from './sections/Loading';
 import mockedMonths from '../mocks/months.json';
 
 export const MonthContext = React.createContext([]);

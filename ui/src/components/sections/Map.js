@@ -1,9 +1,9 @@
 import React from 'react';
 import { Map, Tooltip, TileLayer, CircleMarker } from 'react-leaflet';
 import 'leaflet/dist/leaflet.css';
-import mockedData from '../mocks/sales.json';
-import DashboardBox from './DashboardBox';
-import { numberWithSpaces } from '../utilities/helpers';
+import mockedData from 'mocks/sales.json';
+import DashboardBox from 'components/layout/DashboardBox';
+import { numberWithSpaces } from 'utilities/helpers';
 
 export default function SalesMap() {
   const [data, setData] = React.useState(mockedData);
