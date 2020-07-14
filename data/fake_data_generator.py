@@ -25,7 +25,7 @@ production_df = pd.DataFrame(data)
 production_df.to_csv(directory + '/production.csv', index = False)
 
 # SALES
-rows = 2500
+rows = 25000
 no_locations = 13
 selected_locations = [faker.location_on_land() for i in range(no_locations)]
 locations = [selected_locations[floor(random() * no_locations)] for i in range(rows)]
@@ -34,7 +34,7 @@ data = {
     'profit': [faker.pyfloat(min_value = -1000, max_value = 5000, right_digits=2) for i in range(rows)],
     'loc_lat': [i[0] for i in locations],
     'loc_lng': [i[1] for i in locations],
-    'loc_city': [i[4].split('/')[1] for i in locations]
+    'loc_city': [i[4].split('/')[1].replace('_', ' ') for i in locations]
 }
 sales_df = pd.DataFrame(data)
 sales_df.sort_values('date', inplace = True)

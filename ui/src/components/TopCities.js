@@ -4,6 +4,8 @@ import ChartBox from './ChartBox';
 import { LABELS } from './ChartBox';
 import { numberWithSpaces } from '../utilities/helpers';
 
+const valueFormatter = (value) => `$${numberWithSpaces(value.toFixed(0))}`;
+
 export default function Summary() {
   const [data, setData] = React.useState(mockedData);
 
@@ -41,12 +43,17 @@ export default function Summary() {
     xaxis: {
       categories: cities,
       labels: {
-        formatter: (value) => `$${numberWithSpaces(value.toFixed(0))}`,
-        ...LABELS
-      }
+        formatter: valueFormatter,
+        ...LABELS,
+      },
     },
     yaxis: {
       labels: LABELS,
+    },
+    tooltip: {
+      y: {
+        formatter: valueFormatter,
+      },
     },
   };
 

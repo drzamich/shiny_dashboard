@@ -7,8 +7,19 @@
         }
       }
 
-      .apexcharts-tooltip-marker {
-        background: $scooter !important;
+      .apexcharts {
+        &-tooltip-marker {
+          background: $scooter !important;
+        }
+
+        &-xaxis-label{
+          display: none;
+
+          &:last-child,
+          &:first-child {
+            display: inherit;
+          }
+        }
       }
     }
   }

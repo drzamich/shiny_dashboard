@@ -1,19 +1,18 @@
-## TODOs
+## Issues and TODOs
 
 ### Functional
 * [ ] Exporting the map
 * [ ] Clicking outside the export menu closes the list
 
 ### Visual
-* [ ] Labels of bar chars in on RStudio viewer are nasty
+* [ ] Jumping TopCities chart when range changes
 * [ ] Animations when expanding / collapsing boxes
 * [ ] Printing: expanding charts to full page
 * [ ] Printing: printing tooltips of the map
-* [ ] Sometimes overlapping x-axis labels in Top Cities chart
+* [ ] Printing: layout on mobile
+* [ ] Low quality of exported chars when they're small
 * [ ] Grey stripes on the map
-* [ ] Underscores in names of cities
-* [ ] A11Y: keyboard navigation, alt texts
-* [ ] Formatting of tooltip in top cities
+* [ ] A11Y: keyboard navigation, alt-texts
 
 ### Code quaity
 * [ ] Sort imports
