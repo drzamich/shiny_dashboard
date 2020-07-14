@@ -18,18 +18,19 @@ function App() {
   window.SD_setMonthCodes = (newMonthCodes) => { setMonthCodes(newMonthCodes); };
   window.SD_setLoading = (isLoading) => { setLoading(isLoading); };
 
-  if (loading) return <Loading />;
-
   return (
-    <div className="app grid__container" data-testid="app">
-      <MonthContext.Provider value={monthCodes}>
-        <Header setLoading={setLoading} />
-        <Cards />
-        <Production />
-        <TopCities />
-        <Map />
-      </MonthContext.Provider>
-    </div>
+    <>
+      <div className={`app grid__container ${loading ? ' grid__container--loading' : ''}`} data-testid="app">
+        <MonthContext.Provider value={monthCodes}>
+          <Header setLoading={setLoading} />
+          <Cards />
+          <Production />
+          <TopCities />
+          <Map />
+        </MonthContext.Provider>
+      </div>
+      <Loading visible={loading} />
+    </>
   );
 };
 

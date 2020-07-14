@@ -34,9 +34,6 @@ initialize_gui_data <- function(sales, production, refresh  = FALSE) {
   metrics <- calculate_metrics(sales, production)
   last_month = last(months)
 
-  method <- if(isTRUE(refresh)) 'setRefreshing' else 'setLoading'
-  method_calll <- paste0('SD_', method, '(false)')
-  runjs(method_calll)
   update_production_data(production, last_month)
   update_sales_data(sales, last_month)
 
@@ -47,4 +44,7 @@ initialize_gui_data <- function(sales, production, refresh  = FALSE) {
   runjs(paste0('SD_updateCardsData(', toJSON(metrics, auto_unbox = TRUE),')'))
 
   genetate_mocks(metrics, months, sales, production, last_month);
+  method <- if(isTRUE(refresh)) 'setRefreshing' else 'setLoading'
+  method_calll <- paste0('SD_', method, '(false)')
+  runjs(method_calll)
 }

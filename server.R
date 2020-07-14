@@ -12,7 +12,7 @@ source('gui-helpers.R')
 server <- function(input, output) {
   useShinyjs(html = TRUE)
 
-  initialize_gui_data(sales, production)
+  initialize_gui_data(.GlobalEnv$sales, .GlobalEnv$production)
 
   shiny::observeEvent(input$productionMonth, {
     .GlobalEnv$production %>% update_production_data(input$productionMonth)
@@ -30,6 +30,6 @@ server <- function(input, output) {
   shiny::observeEvent(input$dataRefresh, {
     .GlobalEnv$sales <- read.csv('data/sales.csv')
     .GlobalEnv$production <- read.csv('data/production.csv')
-    initialize_gui_data(sales, production, refresh = TRUE)
+    initialize_gui_data(.GlobalEnv$sales, .GlobalEnv$production, refresh = TRUE)
   });
 }

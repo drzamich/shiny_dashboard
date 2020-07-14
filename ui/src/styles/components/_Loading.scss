@@ -1,7 +1,11 @@
 .loading {
   &__container {
+    position: absolute;
+    z-index: 1000;
+    top: 0;
     @include full-center;
     @include full-size;
+    background: $alabaster;
   }
 
   svg {

@@ -41,6 +41,10 @@ body,
         grid-area: top-cities;
       }
     }
+
+    &--loading .grid__item {
+      height: 0;
+    }
   }
 
   &__item {

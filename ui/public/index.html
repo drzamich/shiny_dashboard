@@ -23,7 +23,11 @@
     -->
     <script src="shared/jquery.js" type="text/javascript"></script>
     <script src="shared/shiny.js" type="text/javascript"></script>
-    <script src="shinyjs/inject.js"></script>
+    <!-- <script src="shinyjs/inject.js"></script> -->
+    <script>
+      // Workaround for shinyapps.io not finding inject.js file on the first run of the app
+      Shiny.addCustomMessageHandler('shinyjs-inject', function(content) {$("head").append(content);});
+    </script>
     <title>Enterprise Shiny Dashboard</title>
   </head>
   <body>
